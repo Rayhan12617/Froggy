@@ -287,7 +287,7 @@
                 <p class="text-brand-lavender/80 text-base sm:text-lg mt-2">Cross the road. Dodge the traffic. Survive the river. Claim the pond!</p>
             </div>
 
-            <!-- Arcade Game Container (Maximally Expanded Cinematic Fullscreen-Optimized Layout) -->
+            <!-- Arcade Game Container -->
             <div id="game-container-wrapper" class="w-full glass-panel rounded-3xl p-3 sm:p-8 purple-glow border border-brand-primary/40 relative transition-all duration-300">
                 
                 <!-- Game HUD Header Controls & Fullscreen Button -->
@@ -322,7 +322,7 @@
                     </div>
                 </div>
 
-                <!-- Canvas Wrapper (Massively Expanded 16:9 Immersive Arena View) -->
+                <!-- Canvas Wrapper -->
                 <div class="relative w-full aspect-[4/3] sm:aspect-[16/9] max-h-[80vh] bg-brand-dark rounded-2xl overflow-hidden border border-brand-primary/30 shadow-inner flex items-center justify-center">
                     <canvas id="gameCanvas" class="w-full h-full block cursor-pointer touch-none"></canvas>
 
@@ -332,7 +332,7 @@
                             <img src="https://i.imgur.com/Mm1igju.jpeg" alt="Logo" class="w-full h-full object-cover">
                         </div>
                         <h3 class="text-3xl sm:text-5xl font-black text-white mb-2 tracking-tight">READY, FROGGY?</h3>
-                        <p class="text-brand-lavender/80 max-w-md text-sm sm:text-base mb-6">"Cross the fast highway, dodge high-speed Monad cars, hop across the rushing river, and claim victory!"</p>
+                        <p class="text-brand-lavender/80 max-w-md text-sm sm:text-base mb-6">"Tap anywhere or swipe to guide Froggy across the highway and river!"</p>
                         <div class="flex flex-col sm:flex-row items-center gap-4">
                             <button onclick="startGame()" class="px-8 py-4 rounded-xl bg-gradient-purple text-white font-extrabold text-base tracking-wide purple-glow hover:scale-105 transition-all flex items-center gap-2">
                                 <i data-lucide="play" class="w-5 h-5"></i> START GAME
@@ -395,34 +395,10 @@
 
                 </div>
 
-                <!-- On-Screen D-Pad for Mobile -->
-                <div class="mt-6 flex flex-col items-center justify-center sm:hidden">
-                    <span class="text-xs font-bold text-brand-lavender/60 mb-2 uppercase tracking-wider">TOUCH CONTROLS</span>
-                    <div class="grid grid-cols-3 gap-2 w-52">
-                        <div></div>
-                        <button onclick="handleControl('UP')" class="glass-panel py-4 rounded-2xl flex items-center justify-center text-white active:bg-brand-primary/50 border border-brand-primary/40 shadow-lg">
-                            <i data-lucide="chevron-up" class="w-7 h-7"></i>
-                        </button>
-                        <div></div>
-                        <button onclick="handleControl('LEFT')" class="glass-panel py-4 rounded-2xl flex items-center justify-center text-white active:bg-brand-primary/50 border border-brand-primary/40 shadow-lg">
-                            <i data-lucide="chevron-left" class="w-7 h-7"></i>
-                        </button>
-                        <button onclick="handleControl('DOWN')" class="glass-panel py-4 rounded-2xl flex items-center justify-center text-white active:bg-brand-primary/50 border border-brand-primary/40 shadow-lg">
-                            <i data-lucide="chevron-down" class="w-7 h-7"></i>
-                        </button>
-                        <button onclick="handleControl('RIGHT')" class="glass-panel py-4 rounded-2xl flex items-center justify-center text-white active:bg-brand-primary/50 border border-brand-primary/40 shadow-lg">
-                            <i data-lucide="chevron-right" class="w-7 h-7"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Desktop Controls Hint -->
-                <div class="mt-4 hidden sm:flex items-center justify-center gap-6 text-xs text-brand-lavender/70 font-medium">
+                <!-- Desktop / Mobile Touch Instruction Hint -->
+                <div class="mt-4 flex items-center justify-center gap-6 text-xs text-brand-lavender/70 font-medium text-center">
                     <div class="flex items-center gap-2">
-                        <span class="px-2.5 py-1.5 rounded-lg bg-brand-primary/20 border border-brand-primary/40 text-white font-arcade">W A S D</span> or <span class="px-2.5 py-1.5 rounded-lg bg-brand-primary/20 border border-brand-primary/40 text-white font-arcade">ARROWS</span> to move
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="px-2.5 py-1.5 rounded-lg bg-brand-primary/20 border border-brand-primary/40 text-white font-arcade">SWIPE</span> or touch screen anywhere
+                        <span class="px-2.5 py-1.5 rounded-lg bg-brand-primary/20 border border-brand-primary/40 text-white font-arcade">TAP</span> or <span class="px-2.5 py-1.5 rounded-lg bg-brand-primary/20 border border-brand-primary/40 text-white font-arcade">SWIPE</span> anywhere on screen to hop forward, left, or right!
                     </div>
                 </div>
 
@@ -650,7 +626,6 @@
                 </p>
 
                 <div class="flex flex-wrap items-center justify-center gap-4">
-                    <!-- FIXED X (TWITTER) LOGO ICON LINK -->
                     <a href="https://x.com/FroggyNad" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-2xl bg-gradient-purple text-white font-extrabold text-base tracking-wide purple-glow hover:scale-105 transition-all flex items-center gap-3">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         FOLLOW X
@@ -683,7 +658,7 @@
                 </div>
             </div>
 
-            <!-- Social Links (Fixed X Logo) -->
+            <!-- Social Links -->
             <div class="flex items-center gap-4">
                 <a href="https://x.com/FroggyNad" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-lavender hover:text-white hover:border-brand-primary transition-all" title="X (Twitter)">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -715,8 +690,8 @@
                 <div class="flex items-start gap-4 glass-panel p-4 rounded-2xl border border-brand-primary/20">
                     <span class="text-2xl">🐸</span>
                     <div>
-                        <h4 class="font-bold text-white text-base">MOVE</h4>
-                        <p class="text-xs text-brand-lavender/80">Use keyboard (W,A,S,D / Arrows), swipe anywhere on screen, or use the mobile D-pad.</p>
+                        <h4 class="font-bold text-white text-base">TOUCH / SWIPE CONTROLS</h4>
+                        <p class="text-xs text-brand-lavender/80">Tap anywhere on the game screen to hop forward, or swipe left/right/down to move in directions!</p>
                     </div>
                 </div>
                 <div class="flex items-start gap-4 glass-panel p-4 rounded-2xl border border-brand-primary/20">
@@ -748,7 +723,7 @@
         </div>
     </div>
 
-    <!-- SOUND SYNTHESIZER / AUDIO SYSTEM & GAME ENGINE -->
+    <!-- GAME ENGINE & TOUCH CONTROL SYSTEM -->
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
@@ -763,7 +738,7 @@
             link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         });
 
-        // Fullscreen Toggle for Game (Expanded to true screen size & responsive container scaling)
+        // Fullscreen Toggle for Game
         function toggleFullscreen() {
             const wrapper = document.getElementById('game-container-wrapper');
             const icon = document.getElementById('fullscreen-icon');
@@ -885,11 +860,10 @@
             document.getElementById('modal-howto').classList.add('hidden');
         }
 
-        // --- ENHANCED GAME ENGINE (FROGGY ROAD RUN) ---
+        // --- GAME ENGINE & SEAMLESS TOUCH CONTROLS ---
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
 
-        // Game State & Difficulty Scaling
         let gameState = 'START'; // START, PLAYING, GAMEOVER, VICTORY
         let score = 0;
         let bestScore = localStorage.getItem('froggy_best') || 0;
@@ -899,12 +873,10 @@
 
         document.getElementById('hud-best').innerText = bestScore;
 
-        // Grid & World dimensions
         const COLS = 15;
         const ROWS = 13;
         let tileSize = 40;
 
-        // Frog object with particle trail & squash
         let frog = {
             gridX: 7,
             gridY: 12,
@@ -921,7 +893,6 @@
 
         function initCars() {
             cars = [];
-            // Traffic Lanes: rows 3, 5, 7, 9 (Dynamic speeds based on level)
             const trafficConfigs = [
                 { row: 3, speed: (1.2 + level * 0.3), count: 2, widthFactor: 1.8 },
                 { row: 5, speed: -(1.5 + level * 0.35), count: 2, widthFactor: 2.2 },
@@ -947,7 +918,6 @@
             canvas.width = container.clientWidth;
             canvas.height = container.clientHeight;
             
-            // Calculate optimal tile size to fill canvas area seamlessly
             let tileW = canvas.width / COLS;
             let tileH = canvas.height / ROWS;
             tileSize = Math.min(tileW, tileH);
@@ -1022,7 +992,6 @@
             }
         }
 
-        // Movement Handling
         function moveFrog(dir) {
             if (gameState !== 'PLAYING') return;
 
@@ -1034,7 +1003,6 @@
             if (dir === 'LEFT') { newX--; frog.rotation = -Math.PI / 2; }
             if (dir === 'RIGHT') { newX++; frog.rotation = Math.PI / 2; }
 
-            // Boundaries
             if (newX >= 0 && newX < COLS && newY >= 0 && newY < ROWS) {
                 frog.gridX = newX;
                 frog.gridY = newY;
@@ -1046,14 +1014,12 @@
                 spawnParticles(frog.x, frog.y, '#7CFF6B');
                 playSound('hop');
 
-                // Score progression
                 let currentDist = (12 - frog.gridY) * 10;
                 if (currentDist > distance) {
                     distance = currentDist;
                     score += 50;
                 }
 
-                // Check Win Condition (Row 0 - Pond)
                 if (frog.gridY === 0) {
                     triggerVictory();
                 }
@@ -1068,35 +1034,71 @@
             if (['ArrowRight', 'KeyD'].includes(e.code)) { e.preventDefault(); moveFrog('RIGHT'); }
         });
 
-        function handleControl(dir) {
-            moveFrog(dir);
-        }
-
-        // Improved Touch / Swipe Gestures on Canvas
+        // Precise Touch & Swipe Controls directly on canvas surface
         let touchStartX = 0;
         let touchStartY = 0;
+        let isSwiping = false;
+
         canvas.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
+            if (e.touches.length === 1) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+                isSwiping = false;
+            }
+            e.preventDefault();
+        }, {passive: false});
+
+        canvas.addEventListener('touchmove', (e) => {
+            if (e.touches.length === 1) {
+                let currentX = e.touches[0].clientX;
+                let currentY = e.touches[0].clientY;
+                let diffX = currentX - touchStartX;
+                let diffY = currentY - touchStartY;
+
+                // If swipe distance exceeds threshold, trigger direction immediately
+                if (Math.abs(diffX) > 30 || Math.abs(diffY) > 30) {
+                    isSwiping = true;
+                    if (Math.abs(diffX) > Math.abs(diffY)) {
+                        if (diffX > 0) moveFrog('RIGHT');
+                        else moveFrog('LEFT');
+                    } else {
+                        if (diffY > 0) moveFrog('DOWN');
+                        else moveFrog('UP');
+                    }
+                    touchStartX = currentX;
+                    touchStartY = currentY;
+                }
+            }
             e.preventDefault();
         }, {passive: false});
 
         canvas.addEventListener('touchend', (e) => {
-            if (gameState !== 'PLAYING') return;
-            let touchEndX = e.changedTouches[0].clientX;
-            let touchEndY = e.changedTouches[0].clientY;
-            let diffX = touchEndX - touchStartX;
-            let diffY = touchEndY - touchStartY;
-
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-                if (diffX > 25) moveFrog('RIGHT');
-                else if (diffX < -25) moveFrog('LEFT');
-            } else {
-                if (diffY > 25) moveFrog('DOWN');
-                else if (diffY < -25) moveFrog('UP');
+            // If it was just a quick tap without dragging, hop forward by default
+            if (!isSwiping && gameState === 'PLAYING') {
+                moveFrog('UP');
             }
             e.preventDefault();
         }, {passive: false});
+
+        // Mouse click/tap support for desktop & mobile browsers
+        canvas.addEventListener('click', (e) => {
+            if (gameState !== 'PLAYING') return;
+            const rect = canvas.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const clickY = e.clientY - rect.top;
+
+            // Determine relative quadrant click for intuitive movement
+            let relX = clickX - canvas.width / 2;
+            let relY = clickY - canvas.height / 2;
+
+            if (Math.abs(relX) > Math.abs(relY)) {
+                if (relX > 0) moveFrog('RIGHT');
+                else moveFrog('LEFT');
+            } else {
+                if (relY > 0) moveFrog('DOWN');
+                else moveFrog('UP');
+            }
+        });
 
         function triggerGameOver() {
             gameState = 'GAMEOVER';
@@ -1148,12 +1150,10 @@
         // Game Engine Loop
         function update() {
             if (gameState === 'PLAYING') {
-                // Smooth interpolation for frog movement
                 frog.x += (frog.targetX - frog.x) * 0.25;
                 frog.y += (frog.targetY - frog.y) * 0.25;
                 frog.squash += (1 - frog.squash) * 0.15;
 
-                // Update particles
                 particles.forEach((p, index) => {
                     p.x += p.vx;
                     p.y += p.vy;
@@ -1161,7 +1161,6 @@
                     if (p.life <= 0) particles.splice(index, 1);
                 });
 
-                // Update Cars
                 let boardWidth = COLS * tileSize;
                 let offsetX = (canvas.width - boardWidth) / 2;
 
@@ -1173,7 +1172,6 @@
                         car.x = boardWidth + 100;
                     }
 
-                    // Collision Check with Cars
                     if (frog.gridY === car.row) {
                         let frogLeft = frog.x - tileSize * 0.32;
                         let frogRight = frog.x + tileSize * 0.32;
@@ -1193,7 +1191,6 @@
                     }
                 });
 
-                // Check River Hazard Row (Row 2)
                 if (frog.gridY === 2) {
                     triggerWaterDeath();
                 }
@@ -1206,11 +1203,9 @@
             let boardWidth = COLS * tileSize;
             let offsetX = (canvas.width - boardWidth) / 2;
 
-            // Draw Background environment lanes
             for (let r = 0; r < ROWS; r++) {
                 let y = r * tileSize;
                 if (r === 0) {
-                    // Safe Bank / Finish Pond
                     ctx.fillStyle = '#0B0713';
                     ctx.fillRect(offsetX, y, boardWidth, tileSize);
                     ctx.fillStyle = '#836EF9';
@@ -1218,10 +1213,8 @@
                     ctx.textAlign = 'center';
                     ctx.fillText('🏆 MONAD POND FINISH 🏆', canvas.width / 2, y + tileSize * 0.65);
                 } else if (r === 2) {
-                    // River Hazard
                     ctx.fillStyle = '#110C24';
                     ctx.fillRect(offsetX, y, boardWidth, tileSize);
-                    // Animated waves
                     ctx.fillStyle = '#836EF933';
                     let time = Date.now() * 0.004;
                     for (let i = 0; i < boardWidth; i += 45) {
@@ -1232,10 +1225,8 @@
                     ctx.textAlign = 'center';
                     ctx.fillText('🌊 MONAD RIVER 🌊', canvas.width / 2, y + tileSize * 0.65);
                 } else if ([3, 5, 7, 9].includes(r)) {
-                    // Highway Roads
                     ctx.fillStyle = '#0F0B1A';
                     ctx.fillRect(offsetX, y, boardWidth, tileSize);
-                    // Dashed Lane dividers
                     ctx.strokeStyle = '#836EF933';
                     ctx.lineWidth = 2;
                     ctx.setLineDash([12, 12]);
@@ -1245,32 +1236,27 @@
                     ctx.stroke();
                     ctx.setLineDash([]);
                 } else {
-                    // Safe Grass Zones
                     ctx.fillStyle = '#07040E';
                     ctx.fillRect(offsetX, y, boardWidth, tileSize);
-                    // Subtle grass dots
                     ctx.fillStyle = '#836EF915';
                     ctx.fillRect(offsetX + 20, y + 10, 4, 4);
                     ctx.fillRect(offsetX + boardWidth - 30, y + tileSize - 15, 4, 4);
                 }
             }
 
-            // Draw Cars
             cars.forEach(car => {
                 let y = car.row * tileSize + 4;
                 let h = tileSize - 8;
                 let carAbsX = offsetX + car.x;
                 
-                // Neon Car Body
                 ctx.fillStyle = car.colorType === 0 ? '#836EF9' : car.colorType === 1 ? '#9B7BFF' : '#B18CFF';
                 ctx.shadowColor = '#836EF9';
                 ctx.shadowBlur = 10;
                 ctx.beginPath();
                 ctx.roundRect(carAbsX, y + 4, car.width, h - 8, 10);
                 ctx.fill();
-                ctx.shadowBlur = 0; // reset
+                ctx.shadowBlur = 0;
 
-                // Headlights & Taillights
                 ctx.fillStyle = '#7CFF6B';
                 if (car.speed > 0) {
                     ctx.fillRect(carAbsX + car.width - 8, y + 8, 6, 6);
@@ -1280,12 +1266,10 @@
                     ctx.fillRect(carAbsX + 2, y + h - 14, 6, 6);
                 }
 
-                // Windshield reflection
                 ctx.fillStyle = 'rgba(255,255,255,0.25)';
                 ctx.fillRect(carAbsX + car.width * 0.28, y + 6, car.width * 0.42, h - 12);
             });
 
-            // Draw Particles
             particles.forEach(p => {
                 ctx.fillStyle = p.color;
                 ctx.globalAlpha = p.life;
@@ -1295,24 +1279,20 @@
                 ctx.globalAlpha = 1.0;
             });
 
-            // Draw Froggy Character
             if (gameState === 'PLAYING' || gameState === 'VICTORY') {
                 ctx.save();
                 ctx.translate(frog.x, frog.y);
                 ctx.rotate(frog.rotation);
                 ctx.scale(frog.squash, 2 - frog.squash);
 
-                // Frog Glow
                 ctx.shadowColor = '#7CFF6B';
                 ctx.shadowBlur = 20;
 
-                // Body
                 ctx.fillStyle = '#7CFF6B';
                 ctx.beginPath();
                 ctx.arc(0, 0, tileSize * 0.36, 0, Math.PI * 2);
                 ctx.fill();
 
-                // Eyes
                 ctx.fillStyle = '#FFFFFF';
                 ctx.beginPath();
                 ctx.arc(-tileSize * 0.16, -tileSize * 0.22, tileSize * 0.13, 0, Math.PI * 2);
