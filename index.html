@@ -12,12 +12,13 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#07050D',
+                        darkBg: '#05030A',
+                        secondaryBg: '#0B0713',
                         deepPurple: '#120A1F',
                         monadPurple: '#836EF9',
                         brightPurple: '#9B7BFF',
                         electricViolet: '#B18CFF',
-                        softLavender: '#D8CCFF',
+                        lavender: '#D8CCFF',
                         frogGreen: '#7CFF6B',
                     },
                     fontFamily: {
@@ -25,9 +26,9 @@
                         heading: ['Space Grotesk', 'Sora', 'sans-serif'],
                     },
                     boxShadow: {
-                        'neon': '0 0 25px rgba(131, 110, 249, 0.35)',
-                        'neon-green': '0 0 20px rgba(124, 255, 107, 0.4)',
-                        'glass': '0 8px 32px 0 rgba(18, 10, 31, 0.37)',
+                        'neon': '0 0 30px rgba(131, 110, 249, 0.35)',
+                        'neon-green': '0 0 25px rgba(124, 255, 107, 0.4)',
+                        'glass': '0 8px 32px 0 rgba(18, 10, 31, 0.45)',
                     }
                 }
             }
@@ -44,7 +45,7 @@
 
     <style>
         body {
-            background-color: #07050D;
+            background-color: #05030A;
             color: #FFFFFF;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
@@ -53,28 +54,28 @@
             font-family: 'Space Grotesk', sans-serif;
         }
         .glass-panel {
-            background: rgba(18, 10, 31, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(131, 110, 249, 0.15);
+            background: rgba(18, 10, 31, 0.7);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(131, 110, 249, 0.18);
         }
         .glass-panel-hover:hover {
-            border-color: rgba(131, 110, 249, 0.4);
-            box-shadow: 0 0 25px rgba(131, 110, 249, 0.2);
+            border-color: rgba(131, 110, 249, 0.45);
+            box-shadow: 0 0 30px rgba(131, 110, 249, 0.25);
         }
         .bg-radial-glow {
-            background: radial-gradient(circle at 50% 30%, rgba(131, 110, 249, 0.25) 0%, rgba(7, 5, 13, 0) 70%);
+            background: radial-gradient(circle at 50% 25%, rgba(131, 110, 249, 0.28) 0%, rgba(5, 3, 10, 0) 75%);
         }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #07050D;
+            background: #05030A;
         }
         ::-webkit-scrollbar-thumb {
             background: #120A1F;
-            border: 1px solid rgba(131, 110, 249, 0.2);
+            border: 1px solid rgba(131, 110, 249, 0.25);
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
@@ -86,14 +87,14 @@
 
     <!-- AMBIENT BACKGROUND GLOWS -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute top-[-10%] left-[20%] w-[600px] h-[600px] bg-monadPurple/10 rounded-full blur-[140px]"></div>
-        <div class="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] bg-electricViolet/10 rounded-full blur-[150px]"></div>
-        <div class="absolute top-[40%] right-[-5%] w-[400px] h-[400px] bg-frogGreen/5 rounded-full blur-[160px]"></div>
+        <div class="absolute top-[-10%] left-[15%] w-[700px] h-[700px] bg-monadPurple/10 rounded-full blur-[150px]"></div>
+        <div class="absolute bottom-[5%] right-[5%] w-[600px] h-[600px] bg-electricViolet/10 rounded-full blur-[160px]"></div>
+        <div class="absolute top-[45%] right-[-5%] w-[500px] h-[500px] bg-frogGreen/5 rounded-full blur-[170px]"></div>
     </div>
 
     <!-- NAVBAR -->
     <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12">
-        <div class="max-w-7xl mx-auto flex items-center justify-between glass-panel rounded-2xl px-6 py-3 border border-monadPurple/20 bg-darkBg/60 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between glass-panel rounded-2xl px-6 py-3 border border-monadPurple/20 bg-darkBg/70 backdrop-blur-md">
             <!-- Left: Logo + Name -->
             <a href="#home" class="flex items-center gap-3 group">
                 <div class="relative w-10 h-10 rounded-xl overflow-hidden border border-monadPurple/40 shadow-neon group-hover:scale-105 transition-transform">
@@ -105,17 +106,24 @@
             </a>
 
             <!-- Navigation Links (Desktop) -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-softLavender">
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-lavender">
                 <a href="#home" class="hover:text-monadPurple transition-colors">HOME</a>
-                <a href="#game" class="hover:text-monadPurple transition-colors flex items-center gap-1">GAME <span class="w-2 h-2 rounded-full bg-frogGreen animate-pulse"></span></a>
+                <a href="#game" class="hover:text-monadPurple transition-colors flex items-center gap-1.5">GAME <span class="w-2 h-2 rounded-full bg-frogGreen animate-pulse"></span></a>
                 <a href="#about" class="hover:text-monadPurple transition-colors">ABOUT</a>
                 <a href="#token" class="hover:text-monadPurple transition-colors">TOKEN</a>
                 <a href="#roadmap" class="hover:text-monadPurple transition-colors">ROADMAP</a>
+                <a href="#community" class="hover:text-monadPurple transition-colors">COMMUNITY</a>
             </nav>
 
-            <!-- Right: Play Now CTA & Sound Toggle -->
-            <div class="hidden md:flex items-center gap-4">
-                <button id="soundToggleBtn" onclick="toggleSound()" class="p-2.5 rounded-xl glass-panel text-softLavender hover:text-white transition-colors" title="Toggle Sound">
+            <!-- Right: Play Now CTA & Social Icons -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="https://www.x.com/FroggyNad" target="_blank" class="p-2.5 rounded-xl glass-panel text-lavender hover:text-white hover:border-monadPurple transition-all" title="X / Twitter">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://t.me/FroggyNad" target="_blank" class="p-2.5 rounded-xl glass-panel text-lavender hover:text-white hover:border-monadPurple transition-all" title="Telegram">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.1.023.327.005.502z"/></svg>
+                </a>
+                <button id="soundToggleBtn" onclick="toggleSound()" class="p-2.5 rounded-xl glass-panel text-lavender hover:text-white transition-colors" title="Toggle Sound">
                     <i data-lucide="volume-2" id="soundIcon" class="w-4 h-4"></i>
                 </button>
                 <a href="#game" class="relative group overflow-hidden rounded-xl p-[1px] focus:outline-none">
@@ -127,22 +135,25 @@
             </div>
 
             <!-- Mobile Hamburger Button -->
-            <button id="mobileMenuBtn" class="md:hidden p-2 rounded-xl glass-panel text-softLavender hover:text-white">
+            <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl glass-panel text-lavender hover:text-white">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
         <!-- Mobile Dropdown Menu -->
-        <div id="mobileMenu" class="hidden md:hidden absolute top-full left-6 right-6 mt-2 glass-panel rounded-2xl p-6 flex flex-col gap-4 border border-monadPurple/30 bg-darkBg/95 backdrop-blur-xl shadow-2xl">
-            <a href="#home" class="mobile-link text-softLavender hover:text-white font-medium py-2 border-b border-white/5">HOME</a>
-            <a href="#game" class="mobile-link text-softLavender hover:text-white font-medium py-2 border-b border-white/5 flex items-center justify-between">GAME <span class="w-2 h-2 rounded-full bg-frogGreen animate-pulse"></span></a>
-            <a href="#about" class="mobile-link text-softLavender hover:text-white font-medium py-2 border-b border-white/5">ABOUT</a>
-            <a href="#token" class="mobile-link text-softLavender hover:text-white font-medium py-2 border-b border-white/5">TOKEN</a>
-            <a href="#roadmap" class="mobile-link text-softLavender hover:text-white font-medium py-2">ROADMAP</a>
+        <div id="mobileMenu" class="hidden lg:hidden absolute top-full left-6 right-6 mt-2 glass-panel rounded-2xl p-6 flex flex-col gap-4 border border-monadPurple/30 bg-darkBg/95 backdrop-blur-xl shadow-2xl">
+            <a href="#home" class="mobile-link text-lavender hover:text-white font-medium py-2 border-b border-white/5">HOME</a>
+            <a href="#game" class="mobile-link text-lavender hover:text-white font-medium py-2 border-b border-white/5 flex items-center justify-between">GAME <span class="w-2 h-2 rounded-full bg-frogGreen animate-pulse"></span></a>
+            <a href="#about" class="mobile-link text-lavender hover:text-white font-medium py-2 border-b border-white/5">ABOUT</a>
+            <a href="#token" class="mobile-link text-lavender hover:text-white font-medium py-2 border-b border-white/5">TOKEN</a>
+            <a href="#roadmap" class="mobile-link text-lavender hover:text-white font-medium py-2 border-b border-white/5">ROADMAP</a>
+            <a href="#community" class="mobile-link text-lavender hover:text-white font-medium py-2 border-b border-white/5">COMMUNITY</a>
             <div class="flex items-center justify-between pt-2">
-                <button onclick="toggleSound()" class="flex items-center gap-2 text-sm text-softLavender">
-                    <i data-lucide="volume-2" id="mobileSoundIcon" class="w-4 h-4"></i> Sound Effects
-                </button>
+                <div class="flex items-center gap-3">
+                    <a href="https://www.x.com/FroggyNad" target="_blank" class="p-2 rounded-xl glass-panel text-lavender"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                    <a href="https://t.me/FroggyNad" target="_blank" class="p-2 rounded-xl glass-panel text-lavender"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.1.023.327.005.502z"/></svg></a>
+                    <button onclick="toggleSound()" class="p-2 rounded-xl glass-panel text-lavender"><i data-lucide="volume-2" id="mobileSoundIcon" class="w-4 h-4"></i></button>
+                </div>
                 <a href="#game" class="mobile-link px-5 py-2.5 rounded-xl bg-monadPurple text-white font-semibold text-sm">PLAY NOW</a>
             </div>
         </div>
@@ -150,16 +161,15 @@
 
     <!-- HERO SECTION -->
     <section id="home" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 bg-radial-glow overflow-hidden z-10">
-        <!-- Floating Water Ripples / Particles Background -->
         <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-monadPurple/10 rounded-full animate-ping opacity-20 duration-1000"></div>
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] border border-electricViolet/15 rounded-full animate-pulse"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-monadPurple/10 rounded-full animate-ping opacity-20 duration-1000"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-electricViolet/15 rounded-full animate-pulse"></div>
         </div>
 
         <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             <!-- Hero Left: Copy & Actions -->
             <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-monadPurple/35 text-softLavender text-xs font-semibold tracking-wider">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-monadPurple/35 text-lavender text-xs font-semibold tracking-wider">
                     <span class="w-2 h-2 rounded-full bg-monadPurple animate-ping"></span>
                     MONAD'S FASTEST POND RESIDENT
                 </div>
@@ -172,12 +182,12 @@
                     Born in Monad. Raised by the pond.
                 </p>
 
-                <p class="text-softLavender/80 text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                    $FROGGY — the pond just got faster. Dive into the ultimate Web3 arcade experience on Monad where fast reflexes meet meme culture.
+                <p class="text-lavender/80 text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    $FROGGY — the pond just got faster. Dive into the ultimate luxury Web3 arcade experience on Monad.
                 </p>
 
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
-                    <a href="#game" class="px-8 py-4 rounded-xl bg-gradient-to-r from-monadPurple to-electricViolet font-bold text-white shadow-neon hover:shadow-neon hover:scale-105 transition-all flex items-center gap-2">
+                    <a href="#game" class="px-8 py-4 rounded-xl bg-gradient-to-r from-monadPurple to-electricViolet font-bold text-white shadow-neon hover:scale-105 transition-all flex items-center gap-2">
                         PLAY FROGGY <i data-lucide="gamepad-2" class="w-5 h-5"></i>
                     </a>
                     <a href="#token" class="px-8 py-4 rounded-xl glass-panel border border-monadPurple/40 font-bold text-white hover:bg-monadPurple/10 transition-all flex items-center gap-2">
@@ -185,13 +195,13 @@
                     </a>
                 </div>
 
-                <div class="flex items-center justify-center lg:justify-start gap-3 pt-2">
-                    <span class="text-xs text-softLavender/60 font-semibold tracking-wider uppercase">Official Links:</span>
-                    <a href="#" target="_blank" class="p-2 rounded-xl glass-panel text-softLavender hover:text-white hover:border-monadPurple transition-all" title="X / Twitter">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                    <span class="text-xs text-lavender/60 font-semibold tracking-wider uppercase">Official Links:</span>
+                    <a href="https://www.x.com/FroggyNad" target="_blank" class="px-4 py-2 rounded-xl glass-panel text-lavender hover:text-white hover:border-monadPurple transition-all flex items-center gap-2 text-xs font-bold">
+                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> 𝕏 FOLLOW FROGGY
                     </a>
-                    <a href="#" target="_blank" class="p-2 rounded-xl glass-panel text-softLavender hover:text-white hover:border-monadPurple transition-all" title="Telegram">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.1.023.327.005.502z"/></svg>
+                    <a href="https://t.me/FroggyNad" target="_blank" class="px-4 py-2 rounded-xl glass-panel text-lavender hover:text-white hover:border-monadPurple transition-all flex items-center gap-2 text-xs font-bold">
+                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.1.023.327.005.502z"/></svg> TELEGRAM
                     </a>
                 </div>
             </div>
@@ -199,21 +209,16 @@
             <!-- Hero Right: Cinematic Character Display -->
             <div class="lg:col-span-5 flex justify-center">
                 <div class="relative w-72 h-72 md:w-96 md:h-96 flex items-center justify-center">
-                    <!-- Glow behind logo -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-monadPurple/30 to-frogGreen/20 rounded-full blur-3xl animate-pulse"></div>
-                    
-                    <!-- Floating Card Container -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-monadPurple/35 to-frogGreen/20 rounded-full blur-3xl animate-pulse"></div>
                     <div class="relative w-64 h-64 md:w-80 md:h-80 glass-panel rounded-3xl p-6 flex items-center justify-center border border-monadPurple/30 shadow-neon group hover:scale-105 transition-transform duration-500">
                         <div class="absolute -top-3 -right-3 px-3 py-1 rounded-full bg-frogGreen/20 border border-frogGreen/40 text-frogGreen text-xs font-bold uppercase tracking-wider backdrop-blur-md">
                             $FROGGY
                         </div>
                         <img src="https://i.imgur.com/Mm1igju.jpeg" alt="Froggy Character" class="w-full h-full object-cover rounded-2xl shadow-2xl filter drop-shadow-[0_10px_20px_rgba(131,110,249,0.4)]">
                     </div>
-
-                    <!-- Floating Badge -->
                     <div class="absolute -bottom-4 glass-panel px-6 py-3 rounded-2xl border border-monadPurple/30 flex items-center gap-3 shadow-xl">
                         <div class="w-3 h-3 rounded-full bg-frogGreen animate-ping"></div>
-                        <span class="text-xs font-semibold tracking-wider text-softLavender">Monad Blockchain Ready</span>
+                        <span class="text-xs font-semibold tracking-wider text-lavender">Monad Blockchain Ready</span>
                     </div>
                 </div>
             </div>
@@ -223,136 +228,141 @@
     <div class="max-w-7xl mx-auto px-6"><div class="h-[1px] w-full bg-gradient-to-r from-transparent via-monadPurple/30 to-transparent"></div></div>
 
     <!-- MAIN GAME SECTION — FROGGY ROAD RUN -->
-    <section id="game" class="py-24 px-6 relative z-20">
-        <div class="max-w-5xl mx-auto text-center space-y-4 mb-12">
+    <section id="game" class="py-24 px-4 md:px-8 relative z-20">
+        <div class="max-w-7xl mx-auto text-center space-y-4 mb-10">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-monadPurple/35 text-frogGreen text-xs font-semibold tracking-wider">
                 ARCADE EXPERIENCE
             </div>
-            <h2 class="text-4xl md:text-5xl font-heading font-extrabold uppercase tracking-tight">
+            <h2 class="text-4xl md:text-6xl font-heading font-extrabold uppercase tracking-tight">
                 FROGGY ROAD RUN
             </h2>
-            <p class="text-softLavender/80 text-lg max-w-xl mx-auto">
+            <p class="text-lavender/80 text-lg md:text-xl max-w-2xl mx-auto">
                 One frog. One road. One chance to reach the pond.
             </p>
         </div>
 
-        <!-- GAME CONTAINER -->
-        <div class="max-w-4xl mx-auto glass-panel rounded-3xl p-4 md:p-8 border border-monadPurple/30 shadow-2xl relative overflow-hidden">
+        <!-- LARGE IMMERSIVE GAME CONTAINER -->
+        <div class="max-w-[1400px] mx-auto glass-panel rounded-3xl p-4 md:p-8 border border-monadPurple/40 shadow-2xl relative overflow-hidden bg-secondaryBg/90">
             
             <!-- GAME HUD -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                <div class="glass-panel p-3 rounded-2xl border border-monadPurple/20 text-center">
-                    <span class="text-xs text-softLavender/60 uppercase tracking-wider block font-semibold">Score</span>
-                    <span id="hudScore" class="text-xl md:text-2xl font-heading font-bold text-white">0</span>
+                <div class="glass-panel p-3.5 rounded-2xl border border-monadPurple/30 flex items-center justify-between">
+                    <span class="text-xs text-lavender/70 uppercase tracking-wider font-semibold">🐸 Froggy</span>
+                    <span id="hudScore" class="text-xl font-heading font-bold text-white">SCORE: 00000</span>
                 </div>
-                <div class="glass-panel p-3 rounded-2xl border border-monadPurple/20 text-center">
-                    <span class="text-xs text-softLavender/60 uppercase tracking-wider block font-semibold">Best Score</span>
-                    <span id="hudBest" class="text-xl md:text-2xl font-heading font-bold text-monadPurple">0</span>
+                <div class="glass-panel p-3.5 rounded-2xl border border-monadPurple/30 flex items-center justify-between">
+                    <span class="text-xs text-lavender/70 uppercase tracking-wider font-semibold">Best Score</span>
+                    <span id="hudBest" class="text-xl font-heading font-bold text-monadPurple">0</span>
                 </div>
-                <div class="glass-panel p-3 rounded-2xl border border-monadPurple/20 text-center">
-                    <span class="text-xs text-softLavender/60 uppercase tracking-wider block font-semibold">Lives</span>
-                    <span id="hudLives" class="text-xl md:text-2xl font-heading font-bold text-frogGreen">🐸 🐸 🐸</span>
+                <div class="glass-panel p-3.5 rounded-2xl border border-monadPurple/30 flex items-center justify-between">
+                    <span class="text-xs text-lavender/70 uppercase tracking-wider font-semibold">Lives</span>
+                    <span id="hudLives" class="text-xl font-heading font-bold text-frogGreen">❤️ ❤️ ❤️</span>
                 </div>
-                <div class="glass-panel p-3 rounded-2xl border border-monadPurple/20 text-center">
-                    <span class="text-xs text-softLavender/60 uppercase tracking-wider block font-semibold">Distance</span>
-                    <span id="hudDistance" class="text-xl md:text-2xl font-heading font-bold text-brightPurple">0m / 50m</span>
+                <div class="glass-panel p-3.5 rounded-2xl border border-monadPurple/30 flex items-center justify-between">
+                    <span class="text-xs text-lavender/70 uppercase tracking-wider font-semibold">Distance</span>
+                    <span id="hudDistance" class="text-xl font-heading font-bold text-brightPurple">0m / 50m</span>
                 </div>
             </div>
 
-            <!-- CANVAS WRAPPER -->
-            <div class="relative w-full aspect-[4/3] md:aspect-[16/10] bg-darkBg rounded-2xl overflow-hidden border border-monadPurple/20 shadow-inner flex items-center justify-center">
+            <!-- LARGE CANVAS WRAPPER (85-95% width, min-height 650-750px on desktop) -->
+            <div class="relative w-full min-h-[650px] md:min-h-[720px] bg-darkBg rounded-2xl overflow-hidden border border-monadPurple/30 shadow-inner flex items-center justify-center">
                 <canvas id="gameCanvas" class="w-full h-full object-cover"></canvas>
 
                 <!-- START MODAL OVERLAY -->
-                <div id="startModal" class="absolute inset-0 bg-darkBg/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30">
-                    <div class="w-20 h-20 rounded-2xl overflow-hidden border border-monadPurple/40 shadow-neon mb-4">
+                <div id="startModal" class="absolute inset-0 bg-darkBg/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30">
+                    <div class="w-24 h-24 rounded-2xl overflow-hidden border border-monadPurple/40 shadow-neon mb-4">
                         <img src="https://i.imgur.com/Mm1igju.jpeg" alt="Logo" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase">READY, FROGGY?</h3>
-                    <p class="text-softLavender/80 max-w-md mb-6 text-sm md:text-base">
-                        Cross the traffic. Reach the pond. Become a Pond Legend. Use W/A/S/D or Arrow keys (or swipe on mobile).
+                    <h3 class="text-3xl md:text-4xl font-heading font-extrabold mb-3 uppercase tracking-wider">READY, FROGGY?</h3>
+                    <p class="text-lavender/80 max-w-md mb-8 text-base md:text-lg">
+                        Cross the traffic. Reach the magical purple pond. Become a Pond Legend on Monad.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button onclick="startGame()" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-monadPurple to-electricViolet font-bold text-white shadow-neon hover:scale-105 transition-all">
+                        <button onclick="startGame()" class="px-8 py-4 rounded-xl bg-gradient-to-r from-monadPurple to-electricViolet font-bold text-white shadow-neon hover:scale-105 transition-all text-base">
                             START GAME
                         </button>
-                        <button onclick="openHowToPlay()" class="px-6 py-3.5 rounded-xl glass-panel border border-monadPurple/40 font-bold text-white hover:bg-monadPurple/10 transition-all">
+                        <button onclick="openHowToPlay()" class="px-8 py-4 rounded-xl glass-panel border border-monadPurple/40 font-bold text-white hover:bg-monadPurple/10 transition-all text-base">
                             HOW TO PLAY
                         </button>
                     </div>
                 </div>
 
                 <!-- VICTORY MODAL OVERLAY -->
-                <div id="victoryModal" class="absolute inset-0 bg-darkBg/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30 hidden">
-                    <div class="text-5xl mb-2">🌊 🐸 🎉</div>
-                    <h3 class="text-3xl font-heading font-extrabold text-frogGreen mb-2">POND REACHED!</h3>
-                    <p class="text-softLavender text-base mb-6">
-                        You made it. The pond is yours, legend. Final Score: <span id="finalScore" class="font-bold text-white">0</span>
+                <div id="victoryModal" class="absolute inset-0 bg-darkBg/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30 hidden">
+                    <div class="text-6xl mb-3">🌊 🐸 🎉</div>
+                    <h3 class="text-4xl font-heading font-extrabold text-frogGreen mb-2 uppercase tracking-wide">POND REACHED! 🐸</h3>
+                    <p class="text-lavender text-lg mb-6">
+                        You made it. The pond is yours. Final Score: <span id="finalScore" class="font-bold text-white">0</span>
                     </p>
-                    <div class="flex gap-4">
+                    <div class="flex flex-wrap gap-4 justify-center">
                         <button onclick="startGame()" class="px-6 py-3.5 rounded-xl bg-frogGreen text-darkBg font-bold hover:scale-105 transition-all">
                             PLAY AGAIN
                         </button>
                         <button onclick="shareScore()" class="px-6 py-3.5 rounded-xl glass-panel border border-monadPurple/40 font-bold text-white hover:bg-monadPurple/10 transition-all flex items-center gap-2">
                             <i data-lucide="share-2" class="w-4 h-4"></i> SHARE SCORE
                         </button>
+                        <a href="https://www.x.com/FroggyNad" target="_blank" class="px-6 py-3.5 rounded-xl bg-monadPurple text-white font-bold hover:bg-electricViolet transition-all flex items-center gap-2">
+                            FOLLOW FROGGY
+                        </a>
                     </div>
                 </div>
 
                 <!-- GAME OVER MODAL OVERLAY -->
-                <div id="gameOverModal" class="absolute inset-0 bg-darkBg/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30 hidden">
-                    <div class="text-5xl mb-2">💥 🐸</div>
-                    <h3 class="text-3xl font-heading font-extrabold text-red-400 mb-2">ROADKILL!</h3>
-                    <p class="text-softLavender text-base mb-6">
-                        Oof! The traffic was too fast. Try again! Score: <span id="overScore" class="font-bold text-white">0</span>
+                <div id="gameOverModal" class="absolute inset-0 bg-darkBg/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30 hidden">
+                    <div class="text-6xl mb-3">💥 🐸</div>
+                    <h3 class="text-4xl font-heading font-extrabold text-red-400 mb-2 uppercase">ROADKILL!</h3>
+                    <p class="text-lavender text-lg mb-6">
+                        Oof! The traffic was too fast. Score: <span id="overScore" class="font-bold text-white">0</span>
                     </p>
-                    <div class="flex gap-4">
-                        <button onclick="startGame()" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-monadPurple to-electricViolet font-bold text-white shadow-neon hover:scale-105 transition-all">
-                            TRY AGAIN
-                        </button>
-                    </div>
+                    <button onclick="startGame()" class="px-8 py-4 rounded-xl bg-gradient-to-r from-monadPurple to-electricViolet font-bold text-white shadow-neon hover:scale-105 transition-all text-base">
+                        TRY AGAIN
+                    </button>
                 </div>
 
             </div>
 
-            <!-- Mobile Touch Controls Bar -->
-            <div class="grid grid-cols-3 gap-3 mt-6 md:hidden">
-                <div></div>
-                <button onclick="handleTouchControl('up')" class="p-4 rounded-xl glass-panel border border-monadPurple/30 flex items-center justify-center active:bg-monadPurple/30 text-white font-bold">▲</button>
-                <div></div>
-                <button onclick="handleTouchControl('left')" class="p-4 rounded-xl glass-panel border border-monadPurple/30 flex items-center justify-center active:bg-monadPurple/30 text-white font-bold">◀</button>
-                <button onclick="handleTouchControl('down')" class="p-4 rounded-xl glass-panel border border-monadPurple/30 flex items-center justify-center active:bg-monadPurple/30 text-white font-bold">▼</button>
-                <button onclick="handleTouchControl('right')" class="p-4 rounded-xl glass-panel border border-monadPurple/30 flex items-center justify-center active:bg-monadPurple/30 text-white font-bold">▶</button>
+            <!-- ON-SCREEN CONTROLS (VISIBLE DIRECTLY INSIDE GAME INTERFACE) -->
+            <div class="mt-6 flex flex-col items-center justify-center gap-3">
+                <span class="text-xs text-lavender/60 uppercase tracking-widest font-bold">On-Screen Controls (Touch & Click Supported)</span>
+                <div class="flex flex-col items-center gap-2">
+                    <button onclick="handleTouchControl('up')" class="w-16 h-16 rounded-2xl glass-panel border border-monadPurple/40 flex items-center justify-center text-white font-bold text-xl active:bg-monadPurple/40 shadow-neon">↑</button>
+                    <div class="flex gap-4">
+                        <button onclick="handleTouchControl('left')" class="w-16 h-16 rounded-2xl glass-panel border border-monadPurple/40 flex items-center justify-center text-white font-bold text-xl active:bg-monadPurple/40 shadow-neon">←</button>
+                        <button onclick="handleTouchControl('down')" class="w-16 h-16 rounded-2xl glass-panel border border-monadPurple/40 flex items-center justify-center text-white font-bold text-xl active:bg-monadPurple/40 shadow-neon">↓</button>
+                        <button onclick="handleTouchControl('right')" class="w-16 h-16 rounded-2xl glass-panel border border-monadPurple/40 flex items-center justify-center text-white font-bold text-xl active:bg-monadPurple/40 shadow-neon">→</button>
+                    </div>
+                </div>
+                <span class="text-xs text-lavender/50 mt-1">Desktop: Use W/A/S/D or Arrow Keys | Mobile: Swipe Up/Down/Left/Right or tap controls above</span>
             </div>
         </div>
     </section>
 
-    <!-- HOW TO PLAY MODAL / SECTION -->
+    <!-- HOW TO PLAY MODAL -->
     <div id="howToPlayModal" class="fixed inset-0 bg-darkBg/90 backdrop-blur-lg z-50 flex items-center justify-center p-6 hidden">
         <div class="max-w-lg w-full glass-panel p-8 rounded-3xl border border-monadPurple/40 relative shadow-2xl">
-            <button onclick="closeHowToPlay()" class="absolute top-4 right-4 text-softLavender hover:text-white">
+            <button onclick="closeHowToPlay()" class="absolute top-4 right-4 text-lavender hover:text-white">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
             <h3 class="text-2xl font-heading font-extrabold mb-6 uppercase text-center text-monadPurple">HOW TO PLAY</h3>
-            <div class="space-y-4 text-softLavender text-sm md:text-base">
-                <div class="flex items-center gap-4 p-3 rounded-2xl glass-panel border border-monadPurple/20">
+            <div class="space-y-4 text-lavender text-sm md:text-base">
+                <div class="flex items-center gap-4 p-3.5 rounded-2xl glass-panel border border-monadPurple/20">
                     <span class="text-2xl">🐸</span>
-                    <div><strong class="text-white block">MOVE FROGGY</strong> Use W/A/S/D or Arrow keys to hop across lanes.</div>
+                    <div><strong class="text-white block">MOVE FROGGY</strong> Use W/A/S/D, Arrow keys, swipe gestures, or on-screen buttons.</div>
                 </div>
-                <div class="flex items-center gap-4 p-3 rounded-2xl glass-panel border border-monadPurple/20">
+                <div class="flex items-center gap-4 p-3.5 rounded-2xl glass-panel border border-monadPurple/20">
                     <span class="text-2xl">🚗</span>
-                    <div><strong class="text-white block">AVOID TRAFFIC</strong> Dodge sports cars, trucks, and supercars speeding by.</div>
+                    <div><strong class="text-white block">AVOID TRAFFIC</strong> Dodge sports cars, supercars, SUVs, and trucks.</div>
                 </div>
-                <div class="flex items-center gap-4 p-3 rounded-2xl glass-panel border border-monadPurple/20">
+                <div class="flex items-center gap-4 p-3.5 rounded-2xl glass-panel border border-monadPurple/20">
                     <span class="text-2xl">⚡</span>
                     <div><strong class="text-white block">COLLECT POWER-UPS</strong> Super Hops, Pond Shields & Monad Boosts!</div>
                 </div>
-                <div class="flex items-center gap-4 p-3 rounded-2xl glass-panel border border-monadPurple/20">
+                <div class="flex items-center gap-4 p-3.5 rounded-2xl glass-panel border border-monadPurple/20">
                     <span class="text-2xl">🌊</span>
                     <div><strong class="text-white block">REACH THE POND</strong> Cross the entire road to claim victory in the magical river.</div>
                 </div>
             </div>
-            <button onclick="closeHowToPlay()" class="w-full mt-6 py-3 rounded-xl bg-monadPurple font-bold text-white hover:bg-electricViolet transition-all">
+            <button onclick="closeHowToPlay()" class="w-full mt-6 py-3.5 rounded-xl bg-monadPurple font-bold text-white hover:bg-electricViolet transition-all">
                 GOT IT, LET'S PLAY!
             </button>
         </div>
@@ -364,45 +374,45 @@
             <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
                 <div>
                     <h3 class="text-2xl md:text-3xl font-heading font-extrabold uppercase">POND LEGENDS</h3>
-                    <p class="text-softLavender/70 text-sm">Top frog crossers in the Monad ecosystem.</p>
+                    <p class="text-lavender/70 text-sm">Top frog crossers in the Monad ecosystem.</p>
                 </div>
                 <div class="px-4 py-2 rounded-xl glass-panel border border-monadPurple/30 text-xs font-semibold text-monadPurple">
-                    API READY ARCHITECTURE
+                    BACKEND API READY ARCHITECTURE
                 </div>
             </div>
 
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead>
-                        <tr class="border-b border-monadPurple/20 text-softLavender/60 text-xs uppercase tracking-wider">
-                            <th class="py-3 px-4">Rank</th>
-                            <th class="py-3 px-4">Player</th>
-                            <th class="py-3 px-4">Wallet / Username</th>
-                            <th class="py-3 px-4 text-right">Score</th>
-                            <th class="py-3 px-4 text-right">Distance</th>
+                        <tr class="border-b border-monadPurple/20 text-lavender/60 text-xs uppercase tracking-wider">
+                            <th class="py-3 px-4">RANK</th>
+                            <th class="py-3 px-4">PLAYER</th>
+                            <th class="py-3 px-4">WALLET / USERNAME</th>
+                            <th class="py-3 px-4 text-right">SCORE</th>
+                            <th class="py-3 px-4 text-right">DISTANCE</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-monadPurple/10 text-sm">
                         <tr class="hover:bg-monadPurple/5 transition-colors">
                             <td class="py-4 px-4 font-bold text-monadPurple">#1</td>
                             <td class="py-4 px-4 flex items-center gap-2">🐸 MonadKing</td>
-                            <td class="py-4 px-4 font-mono text-softLavender/60">0x7F...39A1</td>
+                            <td class="py-4 px-4 font-mono text-lavender/60">0x7F...39A1</td>
                             <td class="py-4 px-4 text-right font-bold text-frogGreen">12,850</td>
-                            <td class="py-4 px-4 text-right text-softLavender">50m</td>
+                            <td class="py-4 px-4 text-right text-lavender">50m</td>
                         </tr>
                         <tr class="hover:bg-monadPurple/5 transition-colors">
                             <td class="py-4 px-4 font-bold text-brightPurple">#2</td>
                             <td class="py-4 px-4 flex items-center gap-2">⚡ HopMaster</td>
-                            <td class="py-4 px-4 font-mono text-softLavender/60">0x4B...88C2</td>
+                            <td class="py-4 px-4 font-mono text-lavender/60">0x4B...88C2</td>
                             <td class="py-4 px-4 text-right font-bold text-frogGreen">10,420</td>
-                            <td class="py-4 px-4 text-right text-softLavender">50m</td>
+                            <td class="py-4 px-4 text-right text-lavender">50m</td>
                         </tr>
                         <tr class="hover:bg-monadPurple/5 transition-colors">
-                            <td class="py-4 px-4 font-bold text-softLavender">#3</td>
+                            <td class="py-4 px-4 font-bold text-lavender">#3</td>
                             <td class="py-4 px-4 flex items-center gap-2">🚀 PondRunner</td>
-                            <td class="py-4 px-4 font-mono text-softLavender/60">0x91...12E9</td>
+                            <td class="py-4 px-4 font-mono text-lavender/60">0x91...12E9</td>
                             <td class="py-4 px-4 text-right font-bold text-frogGreen">9,150</td>
-                            <td class="py-4 px-4 text-right text-softLavender">45m</td>
+                            <td class="py-4 px-4 text-right text-lavender">45m</td>
                         </tr>
                     </tbody>
                 </table>
@@ -420,7 +430,8 @@
                 <h2 class="text-4xl md:text-5xl font-heading font-extrabold uppercase tracking-tight">
                     THE POND TOKEN
                 </h2>
-                <p class="text-softLavender/80 text-lg max-w-xl mx-auto">
+                <h3 class="text-3xl md:text-4xl font-heading font-extrabold text-monadPurple">$FROGGY</h3>
+                <p class="text-lavender/80 text-lg max-w-xl mx-auto">
                     A meme born on Monad, raised by the pond.
                 </p>
             </div>
@@ -432,10 +443,10 @@
                         <div class="w-10 h-10 rounded-xl bg-monadPurple/20 flex items-center justify-center text-monadPurple mb-4">
                             <i data-lucide="file-code" class="w-5 h-5"></i>
                         </div>
-                        <h4 class="text-softLavender/70 text-xs font-semibold uppercase tracking-wider mb-1">Contract Address</h4>
+                        <h4 class="text-lavender/70 text-xs font-semibold uppercase tracking-wider mb-1">CONTRACT ADDRESS</h4>
                         <p class="font-heading font-bold text-lg text-white">COMING SOON</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-monadPurple/10 text-xs text-softLavender/50">Verified on Monad</div>
+                    <div class="mt-6 pt-4 border-t border-monadPurple/10 text-xs text-lavender/50">Verified on Monad</div>
                 </div>
 
                 <!-- Card 2 -->
@@ -444,10 +455,10 @@
                         <div class="w-10 h-10 rounded-xl bg-monadPurple/20 flex items-center justify-center text-monadPurple mb-4">
                             <i data-lucide="pie-chart" class="w-5 h-5"></i>
                         </div>
-                        <h4 class="text-softLavender/70 text-xs font-semibold uppercase tracking-wider mb-1">Total Supply</h4>
+                        <h4 class="text-lavender/70 text-xs font-semibold uppercase tracking-wider mb-1">TOTAL SUPPLY</h4>
                         <p class="font-heading font-bold text-lg text-white">COMING SOON</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-monadPurple/10 text-xs text-softLavender/50">Fixed Supply</div>
+                    <div class="mt-6 pt-4 border-t border-monadPurple/10 text-xs text-lavender/50">Fixed Supply</div>
                 </div>
 
                 <!-- Card 3 -->
@@ -456,10 +467,10 @@
                         <div class="w-10 h-10 rounded-xl bg-monadPurple/20 flex items-center justify-center text-monadPurple mb-4">
                             <i data-lucide="droplets" class="w-5 h-5"></i>
                         </div>
-                        <h4 class="text-softLavender/70 text-xs font-semibold uppercase tracking-wider mb-1">Liquidity</h4>
+                        <h4 class="text-lavender/70 text-xs font-semibold uppercase tracking-wider mb-1">LIQUIDITY</h4>
                         <p class="font-heading font-bold text-lg text-white">COMING SOON</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-monadPurple/10 text-xs text-softLavender/50">Locked & Secure</div>
+                    <div class="mt-6 pt-4 border-t border-monadPurple/10 text-xs text-lavender/50">Locked & Secure</div>
                 </div>
 
                 <!-- Card 4 -->
@@ -468,10 +479,10 @@
                         <div class="w-10 h-10 rounded-xl bg-monadPurple/20 flex items-center justify-center text-monadPurple mb-4">
                             <i data-lucide="network" class="w-5 h-5"></i>
                         </div>
-                        <h4 class="text-softLavender/70 text-xs font-semibold uppercase tracking-wider mb-1">Blockchain</h4>
+                        <h4 class="text-lavender/70 text-xs font-semibold uppercase tracking-wider mb-1">CHAIN</h4>
                         <p class="font-heading font-bold text-lg text-frogGreen">MONAD</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-monadPurple/10 text-xs text-softLavender/50">Ultra-fast L1</div>
+                    <div class="mt-6 pt-4 border-t border-monadPurple/10 text-xs text-lavender/50">Ultra-fast L1</div>
                 </div>
             </div>
         </div>
@@ -481,22 +492,22 @@
     <section id="about" class="py-20 px-6 relative z-20">
         <div class="max-w-5xl mx-auto glass-panel rounded-3xl p-8 md:p-12 border border-monadPurple/30 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div class="lg:col-span-5 flex justify-center">
-                <div class="w-64 h-64 rounded-3xl overflow-hidden border border-monadPurple/40 shadow-neon">
+                <div class="w-64 h-64 rounded-3xl overflow-hidden border border-monadPurple/40 shadow-neon animate-pulse">
                     <img src="https://i.imgur.com/Mm1igju.jpeg" alt="Froggy" class="w-full h-full object-cover">
                 </div>
             </div>
             <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-monadPurple/35 text-softLavender text-xs font-semibold tracking-wider">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-monadPurple/35 text-lavender text-xs font-semibold tracking-wider">
                     ORIGIN STORY
                 </div>
                 <h2 class="text-3xl md:text-4xl font-heading font-extrabold uppercase tracking-tight">
                     BORN IN MONAD. RAISED BY THE POND.
                 </h2>
-                <p class="text-softLavender/80 text-base md:text-lg leading-relaxed">
+                <p class="text-lavender/80 text-base md:text-lg leading-relaxed">
                     Froggy is a fast-moving meme born on Monad and raised by the pond. No complicated story. No unnecessary noise. Just a frog, a fast chain, and a community ready to cross the road.
                 </p>
                 <div class="flex justify-center lg:justify-start gap-4">
-                    <a href="#game" class="px-6 py-3 rounded-xl bg-monadPurple font-bold text-white text-sm hover:bg-electricViolet transition-all">
+                    <a href="#game" class="px-6 py-3.5 rounded-xl bg-monadPurple font-bold text-white text-sm hover:bg-electricViolet transition-all">
                         ENTER THE POND
                     </a>
                 </div>
@@ -520,27 +531,27 @@
                 <!-- Step 01 -->
                 <div class="glass-panel p-8 rounded-3xl border border-monadPurple/30 relative group hover:border-monadPurple transition-all">
                     <span class="text-5xl font-heading font-black text-monadPurple/20 absolute top-4 right-6 group-hover:text-monadPurple/40 transition-colors">01</span>
-                    <h3 class="text-xl font-heading font-bold mb-3 text-white uppercase mt-4">HATCH</h3>
-                    <p class="text-softLavender/70 text-sm leading-relaxed">
-                        Froggy arrives on Monad. Community forms around the pond with blazing fast transactions.
+                    <h3 class="text-xl font-heading font-bold mb-3 text-white uppercase mt-4">01 — HATCH</h3>
+                    <p class="text-lavender/70 text-sm leading-relaxed">
+                        Froggy arrives on Monad.
                     </p>
                 </div>
 
                 <!-- Step 02 -->
                 <div class="glass-panel p-8 rounded-3xl border border-monadPurple/30 relative group hover:border-monadPurple transition-all">
                     <span class="text-5xl font-heading font-black text-monadPurple/20 absolute top-4 right-6 group-hover:text-monadPurple/40 transition-colors">02</span>
-                    <h3 class="text-xl font-heading font-bold mb-3 text-white uppercase mt-4">CROSS</h3>
-                    <p class="text-softLavender/70 text-sm leading-relaxed">
-                        The community grows, viral arcade challenges drop, and Froggy takes over social feeds.
+                    <h3 class="text-xl font-heading font-bold mb-3 text-white uppercase mt-4">02 — CROSS</h3>
+                    <p class="text-lavender/70 text-sm leading-relaxed">
+                        The community grows and Froggy takes over the pond.
                     </p>
                 </div>
 
                 <!-- Step 03 -->
                 <div class="glass-panel p-8 rounded-3xl border border-monadPurple/30 relative group hover:border-monadPurple transition-all">
                     <span class="text-5xl font-heading font-black text-monadPurple/20 absolute top-4 right-6 group-hover:text-monadPurple/40 transition-colors">03</span>
-                    <h3 class="text-xl font-heading font-bold mb-3 text-white uppercase mt-4">SPLASH</h3>
-                    <p class="text-softLavender/70 text-sm leading-relaxed">
-                        More games. More chaos. More Froggy expansions across the entire Monad ecosystem.
+                    <h3 class="text-xl font-heading font-bold mb-3 text-white uppercase mt-4">03 — SPLASH</h3>
+                    <p class="text-lavender/70 text-sm leading-relaxed">
+                        More games. More chaos. More Froggy.
                     </p>
                 </div>
             </div>
@@ -548,7 +559,7 @@
     </section>
 
     <!-- COMMUNITY CTA SECTION -->
-    <section class="py-24 px-6 relative z-20 text-center">
+    <section id="community" class="py-24 px-6 relative z-20 text-center">
         <div class="max-w-4xl mx-auto glass-panel rounded-3xl p-10 md:p-16 border border-monadPurple/40 shadow-neon relative overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-tr from-monadPurple/10 via-transparent to-frogGreen/15 pointer-events-none"></div>
             
@@ -559,18 +570,18 @@
                 <h2 class="text-3xl md:text-5xl font-heading font-extrabold uppercase">
                     JOIN THE POND
                 </h2>
-                <p class="text-softLavender/80 text-lg max-w-lg mx-auto">
+                <p class="text-lavender/80 text-lg max-w-lg mx-auto">
                     The road is dangerous. The pond is waiting.
                 </p>
                 <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
-                    <a href="#" target="_blank" class="px-8 py-4 rounded-xl bg-gradient-to-r from-monadPurple to-electricViolet font-bold text-white shadow-neon hover:scale-105 transition-all">
-                        FOLLOW ON X
+                    <a href="https://www.x.com/FroggyNad" target="_blank" class="px-8 py-4 rounded-xl bg-gradient-to-r from-monadPurple to-electricViolet font-bold text-white shadow-neon hover:scale-105 transition-all flex items-center gap-2">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> 𝕏 FOLLOW ON X
                     </a>
-                    <a href="#" target="_blank" class="px-8 py-4 rounded-xl glass-panel border border-monadPurple/40 font-bold text-white hover:bg-monadPurple/10 transition-all">
-                        JOIN TELEGRAM
+                    <a href="https://t.me/FroggyNad" target="_blank" class="px-8 py-4 rounded-xl glass-panel border border-monadPurple/40 font-bold text-white hover:bg-monadPurple/10 transition-all flex items-center gap-2">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.1.023.327.005.502z"/></svg> JOIN TELEGRAM
                     </a>
                     <a href="#game" class="px-8 py-4 rounded-xl bg-frogGreen text-darkBg font-bold hover:scale-105 transition-all">
-                        PLAY THE GAME
+                        PLAY FROGGY
                     </a>
                 </div>
             </div>
@@ -578,26 +589,25 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-12 px-6 border-t border-monadPurple/20 glass-panel relative z-20 text-center md:text-left">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer class="py-12 px-6 border-t border-monadPurple/25 glass-panel relative z-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 rounded-xl overflow-hidden border border-monadPurple/40">
                     <img src="https://i.imgur.com/Mm1igju.jpeg" alt="Logo" class="w-full h-full object-cover">
                 </div>
                 <span class="font-heading font-bold text-lg">FROGGY ($FROGGY)</span>
             </div>
-            <p class="text-softLavender/60 text-xs">
+            <div class="flex items-center gap-4 text-lavender/80 text-sm font-medium">
+                <a href="https://www.x.com/FroggyNad" target="_blank" class="hover:text-white transition-colors">X / Twitter</a>
+                <a href="https://t.me/FroggyNad" target="_blank" class="hover:text-white transition-colors">Telegram</a>
+            </div>
+            <p class="text-lavender/60 text-xs">
                 © 2026 FROGGY. Born in Monad. Raised by the pond. All rights reserved.
             </p>
-            <div class="flex items-center gap-4 text-xs text-softLavender/60">
-                <a href="#home" class="hover:text-white transition-colors">Privacy</a>
-                <a href="#home" class="hover:text-white transition-colors">Terms</a>
-                <a href="#token" class="hover:text-white transition-colors">Contract</a>
-            </div>
         </div>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC & ARCADE GAME ENGINE -->
+    <!-- JAVASCRIPT & ARCADE GAME ENGINE -->
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
@@ -629,16 +639,16 @@
             const icon = document.getElementById('soundIcon');
             const mobileIcon = document.getElementById('mobileSoundIcon');
             if (soundEnabled) {
-                icon.setAttribute('data-lucide', 'volume-2');
-                mobileIcon.setAttribute('data-lucide', 'volume-2');
+                if (icon) icon.setAttribute('data-lucide', 'volume-2');
+                if (mobileIcon) mobileIcon.setAttribute('data-lucide', 'volume-2');
             } else {
-                icon.setAttribute('data-lucide', 'volume-x');
-                mobileIcon.setAttribute('data-lucide', 'volume-x');
+                if (icon) icon.setAttribute('data-lucide', 'volume-x');
+                if (mobileIcon) mobileIcon.setAttribute('data-lucide', 'volume-x');
             }
             lucide.createIcons();
         }
 
-        // Audio helper using Web Audio API for synthetic arcade sounds
+        // Web Audio API Sound Synthesizer
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         function playSound(type) {
             if (!soundEnabled) return;
@@ -653,29 +663,29 @@
             const now = audioCtx.currentTime;
             if (type === 'hop') {
                 osc.type = 'sine';
-                osc.frequency.setValueAtTime(300, now);
-                osc.frequency.exponentialRampToValueAtTime(600, now + 0.1);
-                gain.gain.setValueAtTime(0.1, now);
+                osc.frequency.setValueAtTime(320, now);
+                osc.frequency.exponentialRampToValueAtTime(650, now + 0.1);
+                gain.gain.setValueAtTime(0.12, now);
                 gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
                 osc.start(now);
                 osc.stop(now + 0.1);
             } else if (type === 'crash') {
                 osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(150, now);
-                osc.frequency.linearRampToValueAtTime(40, now + 0.3);
-                gain.gain.setValueAtTime(0.2, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                osc.frequency.setValueAtTime(140, now);
+                osc.frequency.linearRampToValueAtTime(35, now + 0.35);
+                gain.gain.setValueAtTime(0.25, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
                 osc.start(now);
-                osc.stop(now + 0.3);
+                osc.stop(now + 0.35);
             } else if (type === 'victory') {
                 osc.type = 'triangle';
-                osc.frequency.setValueAtTime(400, now);
-                osc.frequency.setValueAtTime(600, now + 0.1);
-                osc.frequency.setValueAtTime(800, now + 0.2);
+                osc.frequency.setValueAtTime(440, now);
+                osc.frequency.setValueAtTime(660, now + 0.12);
+                osc.frequency.setValueAtTime(880, now + 0.24);
                 gain.gain.setValueAtTime(0.2, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
                 osc.start(now);
-                osc.stop(now + 0.4);
+                osc.stop(now + 0.5);
             }
         }
 
@@ -687,61 +697,56 @@
             document.getElementById('howToPlayModal').classList.add('hidden');
         }
 
-        // --- ARCADE GAME ENGINE ---
+        // --- LARGE ARCADE GAME ENGINE ---
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
 
-        // Set canvas internal resolution
-        canvas.width = 800;
-        canvas.height = 600;
+        // High resolution sizing for crisp arcade graphics
+        canvas.width = 1100;
+        canvas.height = 700;
 
         let gameRunning = false;
         let score = 0;
         let bestScore = localStorage.getItem('froggy_best') || 0;
         let lives = 3;
         let distance = 0;
-        const maxDistance = 50; // 50 meters to reach the pond
+        const maxDistance = 50;
 
         document.getElementById('hudBest').innerText = bestScore;
 
-        // Frog object
         let frog = {
             x: canvas.width / 2,
-            y: canvas.height - 40,
-            size: 28,
-            speed: 40
+            y: canvas.height - 45,
+            size: 32,
+            speed: 42
         };
 
-        // Lanes setup
-        // Lanes: 0 = start grass, 1-6 = roads with cars, 7 = safe median, 8-12 = roads, 13 = river
         let lanes = [];
         function initLanes() {
             lanes = [];
-            const laneHeight = 36;
-            const startY = canvas.height - 70;
+            const laneHeight = 44;
+            const startY = canvas.height - 80;
             
-            // Generate road lanes
-            for (let i = 0; i < 11; i++) {
+            for (let i = 0; i < 12; i++) {
                 let y = startY - (i * laneHeight);
-                let isRoad = (i > 0 && i < 11);
+                let isRoad = (i > 0 && i < 12);
                 lanes.push({
                     y: y,
                     isRoad: isRoad,
                     cars: [],
-                    speed: (i % 2 === 0 ? 1 : -1) * (2 + Math.random() * 2)
+                    speed: (i % 2 === 0 ? 1.5 : -1.5) * (1.5 + Math.random() * 2)
                 });
             }
 
-            // Populate initial cars
             lanes.forEach(lane => {
                 if (lane.isRoad) {
                     let carCount = 2 + Math.floor(Math.random() * 2);
                     for (let c = 0; c < carCount; c++) {
                         lane.cars.push({
-                            x: c * (canvas.width / carCount) + Math.random() * 100,
-                            width: 60 + Math.random() * 30,
-                            height: 24,
-                            color: ['#836EF9', '#7CFF6B', '#B18CFF', '#9B7BFF'][Math.floor(Math.random() * 4)]
+                            x: c * (canvas.width / carCount) + Math.random() * 120,
+                            width: 80 + Math.random() * 40,
+                            height: 28,
+                            color: ['#836EF9', '#7CFF6B', '#B18CFF', '#9B7BFF', '#D8CCFF'][Math.floor(Math.random() * 5)]
                         });
                     }
                 }
@@ -757,7 +762,7 @@
             lives = 3;
             distance = 0;
             frog.x = canvas.width / 2;
-            frog.y = canvas.height - 40;
+            frog.y = canvas.height - 45;
             
             initLanes();
             gameRunning = true;
@@ -765,54 +770,86 @@
         }
 
         function updateHUD() {
-            document.getElementById('hudScore').innerText = score;
-            document.getElementById('hudLives').innerText = '🐸 '.repeat(Math.max(0, lives));
+            document.getElementById('hudScore').innerText = `SCORE: ${String(score).padStart(5, '0')}`;
+            document.getElementById('hudLives').innerText = '❤️ '.repeat(Math.max(0, lives));
             document.getElementById('hudDistance').innerText = `${distance}m / 50m`;
         }
 
-        // Controls
+        // Keyboard Controls
         window.addEventListener('keydown', e => {
             if (!gameRunning) return;
-            const step = 32;
+            const step = 40;
             if (e.key === 'w' || e.key === 'ArrowUp') {
                 frog.y -= step;
                 distance = Math.min(maxDistance, distance + 5);
                 score += 50;
                 playSound('hop');
             } else if (e.key === 's' || e.key === 'ArrowDown') {
-                frog.y = Math.min(canvas.height - 30, frog.y + step);
+                frog.y = Math.min(canvas.height - 35, frog.y + step);
                 distance = Math.max(0, distance - 5);
             } else if (e.key === 'a' || e.key === 'ArrowLeft') {
-                frog.x = Math.max(20, frog.x - step);
+                frog.x = Math.max(30, frog.x - step);
             } else if (e.key === 'd' || e.key === 'ArrowRight') {
-                frog.x = Math.min(canvas.width - 20, frog.x + step);
+                frog.x = Math.min(canvas.width - 30, frog.x + step);
             }
             checkWinCondition();
             updateHUD();
         });
 
+        // On-Screen & Touch Controls with Correct Directional Mapping
         function handleTouchControl(dir) {
             if (!gameRunning) return;
-            const step = 32;
+            const step = 40;
             if (dir === 'up') {
                 frog.y -= step;
                 distance = Math.min(maxDistance, distance + 5);
                 score += 50;
                 playSound('hop');
             } else if (dir === 'down') {
-                frog.y = Math.min(canvas.height - 30, frog.y + step);
+                frog.y = Math.min(canvas.height - 35, frog.y + step);
                 distance = Math.max(0, distance - 5);
             } else if (dir === 'left') {
-                frog.x = Math.max(20, frog.x - step);
+                // Left swipe / left button MUST move left
+                frog.x = Math.max(30, frog.x - step);
             } else if (dir === 'right') {
-                frog.x = Math.min(canvas.width - 20, frog.x + step);
+                // Right swipe / right button MUST move right
+                frog.x = Math.min(canvas.width - 30, frog.x + step);
             }
             checkWinCondition();
             updateHUD();
         }
 
+        // Mobile Swipe Gestures Support with Correct Mapping
+        let touchStartX = 0;
+        let touchStartY = 0;
+        canvas.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, {passive: true});
+
+        canvas.addEventListener('touchend', e => {
+            if (!gameRunning) return;
+            let touchEndX = e.changedTouches[0].screenX;
+            let touchEndY = e.changedTouches[0].screenY;
+            let diffX = touchEndX - touchStartX;
+            let diffY = touchEndY - touchStartY;
+
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                if (diffX > 30) {
+                    handleTouchControl('right'); // Right swipe moves right
+                } else if (diffX < -30) {
+                    handleTouchControl('left');  // Left swipe moves left
+                }
+            } else {
+                if (diffY < -30) {
+                    handleTouchControl('up');
+                } else if (diffY > 30) {
+                    handleTouchControl('down');
+                }
+            }
+        }, {passive: true});
+
         function checkWinCondition() {
-            // Reached top river / pond area
             if (frog.y <= 60) {
                 gameRunning = false;
                 playSound('victory');
@@ -827,37 +864,37 @@
             }
         }
 
-        // Game Loop
+        // Game Loop Rendering
         function gameLoop() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Draw Background / Road lanes
-            ctx.fillStyle = '#07050D';
+            // Background
+            ctx.fillStyle = '#05030A';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Draw River at top
+            // Magical Purple River (Finish Line)
             ctx.fillStyle = '#120A1F';
-            ctx.fillRect(0, 0, canvas.width, 70);
+            ctx.fillRect(0, 0, canvas.width, 75);
             ctx.fillStyle = '#836EF9';
-            ctx.font = 'bold 16px Space Grotesk';
-            ctx.fillText('🌊 THE POND (FINISH LINE) 🌊', canvas.width / 2 - 110, 42);
+            ctx.font = 'bold 20px Space Grotesk';
+            ctx.fillText('🌊 THE POND — MONAD RIVER (FINISH LINE) 🌊', canvas.width / 2 - 210, 46);
 
-            // Render Lanes and Traffic
+            // Traffic Lanes & Vehicles
             lanes.forEach(lane => {
                 if (lane.isRoad) {
-                    ctx.fillStyle = '#120A1F';
-                    ctx.fillRect(0, lane.y - 18, canvas.width, 32);
+                    ctx.fillStyle = '#0B0713';
+                    ctx.fillRect(0, lane.y - 20, canvas.width, 40);
 
-                    // Road dashed lines
-                    ctx.strokeStyle = 'rgba(131, 110, 249, 0.2)';
-                    ctx.setLineDash([10, 10]);
+                    // Road lane dashed markings
+                    ctx.strokeStyle = 'rgba(131, 110, 249, 0.25)';
+                    ctx.setLineDash([14, 14]);
                     ctx.beginPath();
-                    ctx.moveTo(0, lane.y + 14);
-                    ctx.lineTo(canvas.width, lane.y + 14);
+                    ctx.moveTo(0, lane.y + 18);
+                    ctx.lineTo(canvas.width, lane.y + 18);
                     ctx.stroke();
                     ctx.setLineDash([]);
 
-                    // Move and draw cars
+                    // Vehicles
                     lane.cars.forEach(car => {
                         if (gameRunning) {
                             car.x += lane.speed;
@@ -865,25 +902,24 @@
                             if (lane.speed < 0 && car.x < -car.width) car.x = canvas.width;
                         }
 
-                        // Draw Car Body
                         ctx.fillStyle = car.color;
-                        ctx.roundRect(car.x, lane.y - 12, car.width, car.height, 6);
+                        ctx.beginPath();
+                        ctx.roundRect(car.x, lane.y - 14, car.width, car.height, 8);
                         ctx.fill();
 
-                        // Car headlights / glow
+                        // Headlights
                         ctx.fillStyle = '#7CFF6B';
-                        ctx.fillRect(lane.speed > 0 ? car.x + car.width - 6 : car.x, lane.y - 8, 4, 6);
+                        ctx.fillRect(lane.speed > 0 ? car.x + car.width - 8 : car.x, lane.y - 8, 6, 8);
 
-                        // Collision Detection with Frog
+                        // Collision Detection
                         if (gameRunning) {
-                            let dx = Math.abs((frog.x) - (car.x + car.width / 2));
-                            let dy = Math.abs((frog.y) - (lane.y));
-                            if (dx < car.width / 2 + 12 && dy < 16) {
-                                // Collision!
+                            let dx = Math.abs(frog.x - (car.x + car.width / 2));
+                            let dy = Math.abs(frog.y - lane.y);
+                            if (dx < car.width / 2 + 14 && dy < 18) {
                                 playSound('crash');
                                 lives--;
                                 updateHUD();
-                                frog.y = canvas.height - 40;
+                                frog.y = canvas.height - 45;
                                 frog.x = canvas.width / 2;
                                 distance = 0;
 
@@ -901,33 +937,32 @@
             // Draw Froggy Character
             ctx.fillStyle = '#7CFF6B';
             ctx.beginPath();
-            ctx.arc(frog.x, frog.y, 16, 0, Math.PI * 2);
+            ctx.arc(frog.x, frog.y, 18, 0, Math.PI * 2);
             ctx.fill();
-            ctx.lineWidth = 3;
+            ctx.lineWidth = 3.5;
             ctx.strokeStyle = '#836EF9';
             ctx.stroke();
 
-            // Frog eyes
+            // Eyes
             ctx.fillStyle = '#FFFFFF';
             ctx.beginPath();
-            ctx.arc(frog.x - 6, frog.y - 10, 5, 0, Math.PI * 2);
-            ctx.arc(frog.x + 6, frog.y - 10, 5, 0, Math.PI * 2);
+            ctx.arc(frog.x - 7, frog.y - 11, 5.5, 0, Math.PI * 2);
+            ctx.arc(frog.x + 7, frog.y - 11, 5.5, 0, Math.PI * 2);
             ctx.fill();
-            ctx.fillStyle = '#07050D';
+            ctx.fillStyle = '#05030A';
             ctx.beginPath();
-            ctx.arc(frog.x - 6, frog.y - 10, 2, 0, Math.PI * 2);
-            ctx.arc(frog.x + 6, frog.y - 10, 2, 0, Math.PI * 2);
+            ctx.arc(frog.x - 7, frog.y - 11, 2.2, 0, Math.PI * 2);
+            ctx.arc(frog.x + 7, frog.y - 11, 2.2, 0, Math.PI * 2);
             ctx.fill();
 
             requestAnimationFrame(gameLoop);
         }
 
-        // Initialize lanes on load
         initLanes();
         requestAnimationFrame(gameLoop);
 
         function shareScore() {
-            const text = `I just crossed the road and reached the pond with a score of ${score} on $FROGGY on Monad! 🐸🌊 Can you beat me?`;
+            const text = `I just crossed the road and reached the pond with a score of ${score} on $FROGGY on Monad! 🌊🐸 Can you beat me? https://www.x.com/FroggyNad`;
             if (navigator.share) {
                 navigator.share({ title: 'Froggy Score', text: text, url: window.location.href });
             } else {
