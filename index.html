@@ -1,611 +1,661 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FROGGY ($FROGGY) | Monad's Fastest Pond Resident</title>
+    <title>FROGGY ($FROGGY) | Born in Monad. Raised by the Pond.</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        deepBlack: '#030207',
-                        midnightPurple: '#080510',
-                        darkViolet: '#10091C',
-                        cardBg: '#130B22',
-                        monadPurple: '#836EF9',
-                        brightViolet: '#9B7BFF',
-                        electricViolet: '#B18CFF',
-                        softLavender: '#DDD4FF',
-                        frogGreen: '#7CFF6B',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Space Grotesk', 'Sora', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'neon': '0 0 50px rgba(131, 110, 249, 0.4)',
-                        'neon-intense': '0 0 70px rgba(131, 110, 249, 0.65)',
-                        'neon-green': '0 0 35px rgba(124, 255, 107, 0.4)',
-                        'glass': '0 12px 40px 0 rgba(8, 5, 16, 0.85)',
-                        'inner-glow': 'inset 0 0 20px rgba(131, 110, 249, 0.25)',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-12px)' },
-                        },
-                        pulseGlow: {
-                            '0%, 100%': { opacity: '0.4' },
-                            '50%': { opacity: '0.8' },
-                        },
-                        shimmer: {
-                            '0%': { transform: 'translateX(-100%)' },
-                            '100%': { transform: 'translateX(100%)' }
+                        brand: {
+                            primary: '#836EF9',
+                            secondary: '#9B7BFF',
+                            accent: '#B18CFF',
+                            lavender: '#D8CCFF',
+                            dark: '#05030A',
+                            darkPurple: '#0B0713',
+                            card: '#100B1A',
+                            frog: '#7CFF6B'
                         }
                     },
-                    animation: {
-                        'float': 'float 5s ease-in-out infinite',
-                        'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
-                        'shimmer': 'shimmer 2.5s infinite',
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        arcade: ['Courier New', 'monospace']
                     }
                 }
             }
         }
     </script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons -->
+    <!-- Google Fonts & Lucide Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         body {
-            background-color: #030207;
-            color: #FFFFFF;
+            background-color: #05030A;
+            color: #D8CCFF;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+        
         .glass-panel {
-            background: rgba(16, 9, 28, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(131, 110, 249, 0.25);
-            box-shadow: 0 12px 40px 0 rgba(8, 5, 16, 0.85);
+            background: rgba(16, 11, 26, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(131, 110, 249, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(5, 3, 10, 0.5), inset 0 0 20px rgba(131, 110, 249, 0.05);
         }
+
         .glass-panel-hover:hover {
-            border-color: rgba(131, 110, 249, 0.6);
-            box-shadow: 0 0 45px rgba(131, 110, 249, 0.35);
+            border-color: rgba(131, 110, 249, 0.5);
+            box-shadow: 0 12px 40px 0 rgba(131, 110, 249, 0.2), inset 0 0 25px rgba(131, 110, 249, 0.1);
         }
-        .bg-radial-ambient {
-            background: radial-gradient(circle at 50% 15%, rgba(131, 110, 249, 0.22) 0%, rgba(8, 5, 16, 0) 65%);
+
+        .purple-glow {
+            box-shadow: 0 0 40px rgba(131, 110, 249, 0.3);
         }
+
+        .purple-glow-lg {
+            box-shadow: 0 0 80px rgba(131, 110, 249, 0.4);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #836EF9 0%, #B18CFF 50%, #D8CCFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-gradient-purple {
+            background: linear-gradient(135deg, #836EF9 0%, #B18CFF 100%);
+        }
+
+        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #030207;
+            background: #05030A;
         }
         ::-webkit-scrollbar-thumb {
-            background: #10091C;
-            border: 1px solid rgba(131, 110, 249, 0.35);
+            background: #836EF9;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #836EF9;
+            background: #B18CFF;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #FFFFFF 30%, #DDD4FF 70%, #836EF9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+
+        .animate-pulse-glow {
+            animation: pulseGlow 4s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="bg-deepBlack text-white antialiased selection:bg-monadPurple selection:text-white">
+<body class="bg-brand-dark text-brand-lavender relative selection:bg-brand-primary selection:text-white">
 
-    <!-- SOPHISTICATED LAYERED AMBIENT BACKGROUND -->
+    <!-- Background Ambient Effects -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute top-[-10%] left-[5%] w-[700px] h-[700px] bg-monadPurple/15 rounded-full blur-[160px] animate-pulse-glow"></div>
-        <div class="absolute bottom-[5%] right-[2%] w-[650px] h-[650px] bg-electricViolet/12 rounded-full blur-[180px] animate-pulse-glow" style="animation-delay: 2s;"></div>
-        <div class="absolute top-[45%] right-[10%] w-[500px] h-[500px] bg-monadPurple/10 rounded-full blur-[150px]"></div>
-        <!-- Subtle Grid Overlay -->
-        <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#836EF9 1px, transparent 1px), linear-gradient(90deg, #836EF9 1px, transparent 1px); background-size: 60px 60px;"></div>
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-primary/20 rounded-full blur-[120px] animate-pulse-glow"></div>
+        <div class="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-brand-secondary/15 rounded-full blur-[150px] animate-pulse-glow" style="animation-delay: 2s;"></div>
+        <div class="absolute -bottom-40 left-1/4 w-[600px] h-[600px] bg-brand-primary/10 rounded-full blur-[180px]"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#836EF90a_1px,transparent_1px),linear-gradient(to_bottom,#836EF90a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
     </div>
 
-    <!-- FLOATING GLASS NAVBAR -->
-    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12">
-        <div class="max-w-7xl mx-auto flex items-center justify-between glass-panel rounded-2xl px-6 py-3 border border-monadPurple/30 bg-midnightPurple/85 shadow-neon">
-            <!-- Left: Logo + Name -->
+    <!-- NAVBAR -->
+    <header class="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6">
+        <nav class="max-w-7xl mx-auto glass-panel rounded-[20px] px-6 py-4 flex items-center justify-between border border-brand-primary/30 transition-all duration-300">
+            <!-- Logo & Ticker -->
             <a href="#home" class="flex items-center gap-3 group">
-                <div class="relative w-11 h-11 rounded-xl overflow-hidden border border-monadPurple/50 shadow-neon group-hover:scale-105 transition-transform">
-                    <img src="https://i.imgur.com/Mm1igju.jpeg" alt="Froggy Logo" class="w-full h-full object-cover">
+                <div class="relative w-10 h-10 rounded-xl overflow-hidden border border-brand-primary/50 purple-glow transition-transform group-hover:scale-105">
+                    <img src="https://i.imgur.com/Mm1igju.jpeg" alt="FROGGY Logo" class="w-full h-full object-cover">
                 </div>
-                <span class="font-heading font-bold text-xl tracking-wider text-white flex items-center gap-1.5">
-                    FROGGY <span class="text-monadPurple text-sm">($FROGGY)</span>
-                </span>
+                <div class="flex flex-col">
+                    <span class="font-extrabold tracking-wider text-white text-lg flex items-center gap-1.5">
+                        FROGGY <span class="text-xs px-2 py-0.5 rounded-full bg-brand-primary/20 text-brand-accent border border-brand-primary/40 font-semibold">$FROGGY</span>
+                    </span>
+                </div>
             </a>
 
-            <!-- Navigation Links (Desktop) -->
-            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-softLavender">
-                <a href="#home" class="hover:text-monadPurple transition-colors relative py-1">HOME</a>
-                <a href="#game" class="hover:text-monadPurple transition-colors relative py-1 flex items-center gap-1.5">GAME <span class="w-2 h-2 rounded-full bg-monadPurple animate-pulse"></span></a>
-                <a href="#tokenomics" class="hover:text-monadPurple transition-colors relative py-1">TOKENOMICS</a>
-                <a href="#about" class="hover:text-monadPurple transition-colors relative py-1">ABOUT</a>
-                <a href="#roadmap" class="hover:text-monadPurple transition-colors relative py-1">ROADMAP</a>
-                <a href="#community" class="hover:text-monadPurple transition-colors relative py-1">COMMUNITY</a>
-            </nav>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#home" class="nav-link text-white transition-colors hover:text-brand-accent relative py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-primary after:scale-x-100 transition-all">HOME</a>
+                <a href="#game" class="nav-link text-brand-lavender/80 hover:text-brand-accent transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-primary after:scale-x-0 hover:after:scale-x-100 after:transition-all">GAME</a>
+                <a href="#tokenomics" class="nav-link text-brand-lavender/80 hover:text-brand-accent transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-primary after:scale-x-0 hover:after:scale-x-100 after:transition-all">TOKENOMICS</a>
+                <a href="#about" class="nav-link text-brand-lavender/80 hover:text-brand-accent transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-primary after:scale-x-0 hover:after:scale-x-100 after:transition-all">ABOUT</a>
+                <a href="#roadmap" class="nav-link text-brand-lavender/80 hover:text-brand-accent transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-primary after:scale-x-0 hover:after:scale-x-100 after:transition-all">ROADMAP</a>
+                <a href="#community" class="nav-link text-brand-lavender/80 hover:text-brand-accent transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-primary after:scale-x-0 hover:after:scale-x-100 after:transition-all">COMMUNITY</a>
+            </div>
 
-            <!-- Right: Socials, Sound & Play Now -->
-            <div class="hidden lg:flex items-center gap-3">
-                <a href="https://www.x.com/FroggyNad" target="_blank" class="p-2.5 rounded-xl glass-panel text-softLavender hover:text-white hover:border-monadPurple transition-all" title="X / Twitter">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <!-- Right Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://www.x.com/FroggyNad" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-lavender hover:text-white hover:border-brand-primary transition-all">
+                    <i data-lucide="twitter" class="w-4 h-4"></i>
                 </a>
-                <a href="https://t.me/FroggyNad" target="_blank" class="p-2.5 rounded-xl glass-panel text-softLavender hover:text-white hover:border-monadPurple transition-all" title="Telegram">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.1.023.327.005.502z"/></svg>
+                <a href="https://t.me/FroggyNad" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-lavender hover:text-white hover:border-brand-primary transition-all">
+                    <i data-lucide="send" class="w-4 h-4"></i>
                 </a>
-                <button id="soundToggleBtn" onclick="toggleSound()" class="px-3.5 py-2 rounded-xl glass-panel text-softLavender hover:text-white transition-colors flex items-center gap-1.5 text-xs font-bold" title="Toggle Sound">
-                    <i data-lucide="volume-2" id="soundIcon" class="w-3.5 h-3.5"></i> <span id="soundLabel">SOUND ON</span>
+                <button id="sound-toggle-btn" onclick="toggleGlobalSound()" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-lavender hover:text-white hover:border-brand-primary transition-all" title="Toggle Sound">
+                    <i data-lucide="volume-2" id="sound-icon" class="w-4 h-4"></i>
                 </button>
-                <a href="#game" class="relative group overflow-hidden rounded-xl p-[1px] focus:outline-none">
-                    <span class="absolute inset-0 bg-gradient-to-r from-monadPurple via-brightViolet to-electricViolet transition-all duration-300 group-hover:opacity-90"></span>
-                    <span class="relative px-5 py-2.5 rounded-xl bg-deepBlack flex items-center gap-2 text-sm font-semibold tracking-wide text-white transition-colors group-hover:bg-opacity-0">
-                        PLAY NOW <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </span>
+                <a href="#game" class="px-5 py-2.5 rounded-xl bg-gradient-purple text-white font-bold text-sm tracking-wide purple-glow hover:scale-105 transition-all">
+                    PLAY NOW
                 </a>
             </div>
 
             <!-- Mobile Hamburger Button -->
-            <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl glass-panel text-softLavender hover:text-white">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+            <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white focus:outline-none">
+                <i data-lucide="menu" class="w-5 h-5"></i>
             </button>
-        </div>
+        </nav>
 
-        <!-- Mobile Dropdown Menu -->
-        <div id="mobileMenu" class="hidden lg:hidden absolute top-full left-6 right-6 mt-2 glass-panel rounded-2xl p-6 flex flex-col gap-4 border border-monadPurple/40 bg-midnightPurple/95 backdrop-blur-2xl shadow-2xl">
-            <a href="#home" class="mobile-link text-softLavender hover:text-white font-medium py-2 border-b border-white/5">HOME</a>
-            <a href="#game" class="mobile-link text-softLavender hover:text-white font-medium py-2 border-b border-white/5 flex items-center justify-between">GAME <span class="w-2 h-2 rounded-full bg-monadPurple animate-pulse"></span></a>
-            <a href="#tokenomics" class="mobile-link text-softLavender hover:text-white font-medium py-2 border-b border-white/5">TOKENOMICS</a>
-            <a href="#about" class="mobile-link text-softLavender hover:text-white font-medium py-2 border-b border-white/5">ABOUT</a>
-            <a href="#roadmap" class="mobile-link text-softLavender hover:text-white font-medium py-2 border-b border-white/5">ROADMAP</a>
-            <a href="#community" class="mobile-link text-softLavender hover:text-white font-medium py-2 border-b border-white/5">COMMUNITY</a>
+        <!-- Mobile Menu Modal / Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-4 right-4 glass-panel rounded-2xl p-6 flex flex-col gap-4 border border-brand-primary/40 shadow-2xl z-50">
+            <a href="#home" class="mobile-nav-link text-lg font-semibold text-white py-2 border-b border-brand-primary/10">HOME</a>
+            <a href="#game" class="mobile-nav-link text-lg font-semibold text-brand-lavender py-2 border-b border-brand-primary/10">GAME</a>
+            <a href="#tokenomics" class="mobile-nav-link text-lg font-semibold text-brand-lavender py-2 border-b border-brand-primary/10">TOKENOMICS</a>
+            <a href="#about" class="mobile-nav-link text-lg font-semibold text-brand-lavender py-2 border-b border-brand-primary/10">ABOUT</a>
+            <a href="#roadmap" class="mobile-nav-link text-lg font-semibold text-brand-lavender py-2 border-b border-brand-primary/10">ROADMAP</a>
+            <a href="#community" class="mobile-nav-link text-lg font-semibold text-brand-lavender py-2">COMMUNITY</a>
             <div class="flex items-center justify-between pt-2">
                 <div class="flex items-center gap-3">
-                    <a href="https://www.x.com/FroggyNad" target="_blank" class="p-2.5 rounded-xl glass-panel text-softLavender"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-                    <a href="https://t.me/FroggyNad" target="_blank" class="p-2.5 rounded-xl glass-panel text-softLavender"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.1.023.327.005.502z"/></svg></a>
-                    <button onclick="toggleSound()" class="px-3 py-2 rounded-xl glass-panel text-softLavender flex items-center gap-1.5 text-xs font-bold"><i data-lucide="volume-2" id="mobileSoundIcon" class="w-4 h-4"></i> SOUND</button>
+                    <a href="https://www.x.com/FroggyNad" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white">
+                        <i data-lucide="twitter" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://t.me/FroggyNad" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                    </a>
+                    <button onclick="toggleGlobalSound()" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white">
+                        <i data-lucide="volume-2" class="mobile-sound-icon w-4 h-4"></i>
+                    </button>
                 </div>
-                <a href="#game" class="mobile-link px-5 py-2.5 rounded-xl bg-monadPurple text-white font-semibold text-sm shadow-neon">PLAY NOW</a>
+                <a href="#game" class="px-6 py-3 rounded-xl bg-gradient-purple text-white font-bold text-sm tracking-wide purple-glow">
+                    PLAY NOW
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- CINEMATIC HERO SECTION -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-6 bg-radial-ambient overflow-hidden z-10">
-        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
-            <!-- Hero Left: Copy & Actions -->
-            <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-monadPurple/40 text-softLavender text-xs font-semibold tracking-wider shadow-neon">
-                    <span class="w-2 h-2 rounded-full bg-monadPurple animate-ping"></span>
-                    MONAD'S FASTEST POND RESIDENT
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-4 sm:px-6 z-10">
+        <div class="max-w-7xl mx-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Hero Left Content -->
+            <div class="lg:col-span-7 flex flex-col items-start text-left gap-6">
+                <!-- Small Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-brand-primary/40 text-brand-accent text-xs font-bold tracking-wider uppercase purple-glow">
+                    <span class="w-2 h-2 rounded-full bg-brand-primary animate-ping"></span>
+                    🐸 MONAD'S FASTEST POND RESIDENT
                 </div>
 
-                <h1 class="text-5xl sm:text-6xl md:text-7xl font-heading font-extrabold tracking-tight uppercase leading-none">
-                    <span class="gradient-text">FROGGY</span>
-                </h1>
-
-                <div class="text-xl md:text-2xl font-heading font-bold text-brightViolet tracking-wide">
-                    $FROGGY
+                <!-- Huge Heading -->
+                <div class="flex flex-col gap-2">
+                    <h1 class="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white drop-shadow-lg">
+                        FROGGY
+                    </h1>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gradient">
+                        BORN IN MONAD.<br>RAISED BY THE POND.
+                    </h2>
                 </div>
 
-                <p class="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold tracking-tight text-white/90">
-                    BORN IN MONAD. RAISED BY THE POND.
+                <!-- Description -->
+                <p class="text-lg sm:text-xl text-brand-lavender/90 max-w-xl font-normal leading-relaxed">
+                    "$FROGGY is a fast-moving meme and arcade experience built for the Monad ecosystem."
                 </p>
 
-                <p class="text-softLavender/80 text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
-                    The ultimate luxury Web3 arcade experience on Monad. Fast, immersive, and built for true pond legends.
-                </p>
-
-                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
-                    <a href="#game" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-monadPurple via-brightViolet to-electricViolet font-bold text-white shadow-neon-intense hover:scale-105 transition-all flex items-center gap-2 text-base">
-                        PLAY FROGGY <i data-lucide="gamepad-2" class="w-5 h-5"></i>
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a href="#game" class="px-8 py-4 rounded-2xl bg-gradient-purple text-white font-extrabold text-base tracking-wide purple-glow hover:scale-105 transition-all flex items-center gap-3">
+                        <i data-lucide="gamepad-2" class="w-5 h-5"></i>
+                        PLAY FROGGY
                     </a>
-                    <a href="#tokenomics" class="px-8 py-4 rounded-2xl glass-panel border border-monadPurple/40 font-bold text-white hover:bg-monadPurple/10 transition-all flex items-center gap-2 text-base shadow-lg">
-                        BUY $FROGGY <i data-lucide="coins" class="w-5 h-5 text-monadPurple"></i>
+                    <a href="#tokenomics" class="px-8 py-4 rounded-2xl glass-panel text-white font-bold text-base tracking-wide hover:border-brand-primary transition-all flex items-center gap-3">
+                        <i data-lucide="coins" class="w-5 h-5 text-brand-accent"></i>
+                        BUY $FROGGY
                     </a>
                 </div>
 
-                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4 text-xs font-semibold tracking-widest text-softLavender/60">
-                    <span class="uppercase">Official Ecosystem:</span>
-                    <a href="https://www.x.com/FroggyNad" target="_blank" class="px-4 py-2 rounded-xl glass-panel text-softLavender hover:text-white hover:border-monadPurple transition-all flex items-center gap-1.5">
-                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X / TWITTER
+                <!-- Social Buttons -->
+                <div class="flex items-center gap-4 pt-4">
+                    <a href="https://www.x.com/FroggyNad" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl glass-panel text-sm font-semibold text-brand-lavender hover:text-white hover:border-brand-primary transition-all flex items-center gap-2">
+                        <i data-lucide="twitter" class="w-4 h-4 text-brand-accent"></i>
+                        FOLLOW FROGGY
                     </a>
-                    <a href="https://t.me/FroggyNad" target="_blank" class="px-4 py-2 rounded-xl glass-panel text-softLavender hover:text-white hover:border-monadPurple transition-all flex items-center gap-1.5">
-                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.1.023.327.005.502z"/></svg> TELEGRAM
+                    <a href="https://t.me/FroggyNad" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl glass-panel text-sm font-semibold text-brand-lavender hover:text-white hover:border-brand-primary transition-all flex items-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4 text-brand-accent"></i>
+                        TELEGRAM
                     </a>
                 </div>
             </div>
 
-            <!-- Hero Right: Cinematic Character Display -->
-            <div class="lg:col-span-5 flex justify-center">
-                <div class="relative w-80 h-80 md:w-[420px] md:h-[420px] flex items-center justify-center animate-float">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-monadPurple/45 via-electricViolet/20 to-transparent rounded-full blur-[70px]"></div>
-                    <div class="relative w-72 h-72 md:w-96 md:h-96 glass-panel rounded-[32px] p-6 flex items-center justify-center border border-monadPurple/50 shadow-neon-intense group hover:scale-[1.02] transition-all duration-500 bg-gradient-to-b from-cardBg/90 to-darkViolet/80">
-                        <div class="absolute -top-3.5 right-6 px-4 py-1.5 rounded-full bg-monadPurple/40 border border-monadPurple/70 text-softLavender text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-neon">
+            <!-- Hero Right Visual -->
+            <div class="lg:col-span-5 flex justify-center relative">
+                <div class="relative w-72 h-72 sm:w-96 sm:h-96 flex items-center justify-center">
+                    <!-- Purple Halo & Glow Background -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-primary/40 to-brand-secondary/40 rounded-full blur-3xl animate-pulse-glow"></div>
+                    
+                    <!-- Glass Frame -->
+                    <div class="relative w-full h-full rounded-[3rem] glass-panel p-6 flex flex-col items-center justify-center purple-glow-lg animate-float border-2 border-brand-primary/40">
+                        <!-- Floating Badges inside frame -->
+                        <div class="absolute -top-4 -right-2 px-3 py-1 rounded-full bg-brand-primary text-white text-xs font-extrabold tracking-wider shadow-lg">
                             $FROGGY
                         </div>
-                        <img src="https://i.imgur.com/Mm1igju.jpeg" alt="Froggy Character" class="w-full h-full object-cover rounded-2xl shadow-2xl filter drop-shadow-[0_15px_30px_rgba(131,110,249,0.5)]">
-                    </div>
-                    <div class="absolute -bottom-5 glass-panel px-6 py-3 rounded-2xl border border-monadPurple/50 flex items-center gap-3 shadow-xl backdrop-blur-xl">
-                        <div class="w-3 h-3 rounded-full bg-monadPurple animate-ping"></div>
-                        <span class="text-xs font-bold tracking-wider text-softLavender">MONAD POWERED BLOCKCHAIN</span>
+                        <div class="absolute -bottom-4 -left-2 px-3 py-1 rounded-full glass-panel text-brand-accent text-xs font-bold tracking-wider border border-brand-primary/50">
+                            MONAD POWERED
+                        </div>
+
+                        <!-- Main Logo Image -->
+                        <div class="w-48 h-48 sm:w-60 sm:h-60 rounded-2xl overflow-hidden border-2 border-brand-primary/60 purple-glow relative group">
+                            <img src="https://i.imgur.com/Mm1igju.jpeg" alt="FROGGY Mascot" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-60"></div>
+                        </div>
+
+                        <!-- Mini Subtitle inside card -->
+                        <div class="mt-4 text-center">
+                            <span class="text-xs font-bold uppercase tracking-widest text-brand-accent">Monad Arcade Edition</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- DIVISION LINE -->
-    <div class="max-w-7xl mx-auto px-6"><div class="h-[1px] w-full bg-gradient-to-r from-transparent via-monadPurple/50 to-transparent"></div></div>
-
-    <!-- FROGGY ROAD RUN GAME SECTION -->
-    <section id="game" class="py-24 px-4 md:px-8 relative z-25">
-        <div class="max-w-7xl mx-auto text-center space-y-4 mb-12">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-monadPurple/40 text-softLavender text-xs font-semibold tracking-wider shadow-neon">
-                PREMIUM ARCADE CABINET
-            </div>
-            <h2 class="text-4xl md:text-6xl font-heading font-extrabold uppercase tracking-tight gradient-text">
-                FROGGY ROAD RUN
-            </h2>
-            <p class="text-softLavender/80 text-lg md:text-xl max-w-2xl mx-auto font-light">
-                Cross the Monad highway. Dodge high-speed purple hypercars. Claim your pond victory.
-            </p>
-        </div>
-
-        <!-- RESPONSIVE ARCADE CONTAINER -->
-        <div class="max-w-[1280px] mx-auto glass-panel rounded-[32px] p-5 md:p-10 border border-monadPurple/60 shadow-2xl relative overflow-hidden bg-cardBg/95">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-brightViolet to-transparent"></div>
-
-            <!-- GAME HUD -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
-                <div class="glass-panel p-4 rounded-2xl border border-monadPurple/40 flex items-center justify-between shadow-lg">
-                    <span class="text-xs text-softLavender/70 uppercase tracking-wider font-semibold flex items-center gap-1.5"><i data-lucide="gamepad-2" class="w-3.5 h-3.5 text-monadPurple"></i> Score</span>
-                    <span id="hudScore" class="text-base md:text-xl font-heading font-bold text-white">00000</span>
+    <!-- GAME SECTION -->
+    <section id="game" class="relative py-20 px-4 sm:px-6 z-10">
+        <div class="max-w-6xl mx-auto flex flex-col items-center">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-brand-primary/30 text-brand-accent text-xs font-bold tracking-wider uppercase mb-3">
+                    ARCADE EXPERIENCE
                 </div>
-                <div class="glass-panel p-4 rounded-2xl border border-monadPurple/40 flex items-center justify-between shadow-lg">
-                    <span class="text-xs text-softLavender/70 uppercase tracking-wider font-semibold flex items-center gap-1.5"><i data-lucide="award" class="w-3.5 h-3.5 text-monadPurple"></i> Best</span>
-                    <span id="hudBest" class="text-base md:text-xl font-heading font-bold text-monadPurple">0</span>
-                </div>
-                <div class="glass-panel p-4 rounded-2xl border border-monadPurple/40 flex items-center justify-between shadow-lg">
-                    <span class="text-xs text-softLavender/70 uppercase tracking-wider font-semibold flex items-center gap-1.5"><i data-lucide="heart" class="w-3.5 h-3.5 text-red-400"></i> Lives</span>
-                    <span id="hudLives" class="text-base md:text-xl font-heading font-bold text-monadPurple">❤️ ❤️ ❤️</span>
-                </div>
-                <div class="glass-panel p-4 rounded-2xl border border-monadPurple/40 flex items-center justify-between shadow-lg">
-                    <span class="text-xs text-softLavender/70 uppercase tracking-wider font-semibold flex items-center gap-1.5"><i data-lucide="navigation" class="w-3.5 h-3.5 text-brightViolet"></i> Distance</span>
-                    <span id="hudDistance" class="text-base md:text-xl font-heading font-bold text-brightViolet">0m / 50m</span>
-                </div>
+                <h2 class="text-4xl sm:text-5xl font-black text-white tracking-tight">FROGGY ROAD RUN</h2>
+                <p class="text-brand-lavender/80 text-base sm:text-lg mt-2">Cross the road. Dodge the traffic. Survive the river.</p>
             </div>
 
-            <!-- RESPONSIVE CANVAS SCREEN -->
-            <div class="relative w-full aspect-[4/3] md:aspect-[16/9] max-h-[720px] bg-deepBlack rounded-2xl overflow-hidden border border-monadPurple/50 shadow-inner flex items-center justify-center">
-                <canvas id="gameCanvas" class="w-full h-full object-cover touch-none"></canvas>
-
-                <!-- START MODAL OVERLAY -->
-                <div id="startModal" class="absolute inset-0 bg-deepBlack/95 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center z-30">
-                    <div class="w-24 h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden border border-monadPurple/60 shadow-neon mb-5">
-                        <img src="https://i.imgur.com/Mm1igju.jpeg" alt="Logo" class="w-full h-full object-cover">
+            <!-- Arcade Game Container -->
+            <div class="w-full glass-panel rounded-3xl p-4 sm:p-6 purple-glow border border-brand-primary/40 relative">
+                
+                <!-- Game HUD -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                    <div class="glass-panel rounded-xl p-3 flex flex-col items-center border border-brand-primary/20">
+                        <span class="text-xs font-bold text-brand-lavender/70 uppercase tracking-wider">SCORE</span>
+                        <span id="hud-score" class="text-xl sm:text-2xl font-black text-white font-arcade">00000</span>
                     </div>
-                    <h3 class="text-3xl md:text-5xl font-heading font-extrabold mb-3 uppercase tracking-wider gradient-text">READY TO CROSS THE ROAD?</h3>
-                    <p class="text-softLavender/80 max-w-md mb-8 text-sm md:text-base font-light">
-                        Navigate Monad highway traffic. Reach the magical purple river pond and enter Pond Legends history.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <button onclick="startGame()" class="px-9 py-4 rounded-2xl bg-gradient-to-r from-monadPurple via-brightViolet to-electricViolet font-bold text-white shadow-neon-intense hover:scale-105 transition-all text-base">
-                            START GAME
-                        </button>
-                        <button onclick="openHowToPlay()" class="px-9 py-4 rounded-2xl glass-panel border border-monadPurple/40 font-bold text-white hover:bg-monadPurple/10 transition-all text-base shadow-lg">
-                            HOW TO PLAY
-                        </button>
+                    <div class="glass-panel rounded-xl p-3 flex flex-col items-center border border-brand-primary/20">
+                        <span class="text-xs font-bold text-brand-lavender/70 uppercase tracking-wider">BEST</span>
+                        <span id="hud-best" class="text-xl sm:text-2xl font-black text-brand-accent font-arcade">00000</span>
+                    </div>
+                    <div class="glass-panel rounded-xl p-3 flex flex-col items-center border border-brand-primary/20">
+                        <span class="text-xs font-bold text-brand-lavender/70 uppercase tracking-wider">LIVES</span>
+                        <span id="hud-lives" class="text-xl sm:text-2xl font-black text-red-400">❤️❤️❤️</span>
+                    </div>
+                    <div class="glass-panel rounded-xl p-3 flex flex-col items-center border border-brand-primary/20">
+                        <span class="text-xs font-bold text-brand-lavender/70 uppercase tracking-wider">DISTANCE</span>
+                        <span id="hud-distance" class="text-xl sm:text-2xl font-black text-white font-arcade">0m</span>
                     </div>
                 </div>
 
-                <!-- VICTORY MODAL OVERLAY -->
-                <div id="victoryModal" class="absolute inset-0 bg-deepBlack/95 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center z-30 hidden">
-                    <div class="text-5xl md:text-6xl mb-3 animate-bounce">🌊 🐸 🎉</div>
-                    <h3 class="text-3xl md:text-5xl font-heading font-extrabold text-monadPurple mb-2 uppercase tracking-wide">POND REACHED!</h3>
-                    <p class="text-softLavender text-base md:text-lg mb-6">
-                        The pond is yours. Final Score: <span id="finalScore" class="font-bold text-white">0</span>
-                    </p>
-                    <div class="flex flex-wrap gap-4 justify-center">
-                        <button onclick="startGame()" class="px-7 py-4 rounded-2xl bg-monadPurple text-white font-bold hover:scale-105 transition-all shadow-neon text-sm md:text-base">
-                            PLAY AGAIN
+                <!-- Canvas Wrapper -->
+                <div class="relative w-full aspect-[4/3] sm:aspect-[16/9] bg-brand-dark rounded-2xl overflow-hidden border border-brand-primary/30 shadow-inner">
+                    <canvas id="gameCanvas" class="w-full h-full block cursor-pointer"></canvas>
+
+                    <!-- START SCREEN OVERLAY -->
+                    <div id="screen-start" class="absolute inset-0 bg-brand-dark/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-20">
+                        <div class="w-24 h-24 rounded-2xl overflow-hidden border-2 border-brand-primary mb-4 purple-glow animate-float">
+                            <img src="https://i.imgur.com/Mm1igju.jpeg" alt="Logo" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-3xl sm:text-4xl font-black text-white mb-2">READY, FROGGY?</h3>
+                        <p class="text-brand-lavender/80 max-w-md text-sm sm:text-base mb-6">"Cross the road. Dodge the traffic. Reach the pond."</p>
+                        <div class="flex flex-col sm:flex-row items-center gap-4">
+                            <button onclick="startGame()" class="px-8 py-3.5 rounded-xl bg-gradient-purple text-white font-extrabold text-base tracking-wide purple-glow hover:scale-105 transition-all flex items-center gap-2">
+                                <i data-lucide="play" class="w-5 h-5"></i> START GAME
+                            </button>
+                            <button onclick="openHowToPlay()" class="px-6 py-3.5 rounded-xl glass-panel text-white font-bold text-sm tracking-wide hover:border-brand-primary transition-all flex items-center gap-2">
+                                <i data-lucide="help-circle" class="w-4 h-4 text-brand-accent"></i> HOW TO PLAY
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- GAME OVER / ROADKILL SCREEN -->
+                    <div id="screen-gameover" class="hidden absolute inset-0 bg-brand-dark/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-20">
+                        <div class="text-5xl mb-3 animate-bounce">🚗💥🐸</div>
+                        <h3 id="gameover-title" class="text-3xl sm:text-4xl font-black text-red-400 mb-1">ROADKILL!</h3>
+                        <p id="gameover-subtitle" class="text-brand-lavender/80 text-sm mb-4">Froggy couldn't dodge the traffic.</p>
+                        <div class="glass-panel rounded-2xl p-4 mb-6 w-64 max-w-full border border-brand-primary/30 flex flex-col gap-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-brand-lavender/70">Final Score:</span>
+                                <span id="go-score" class="font-bold text-white font-arcade">0</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-brand-lavender/70">Best Score:</span>
+                                <span id="go-best" class="font-bold text-brand-accent font-arcade">0</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <button onclick="restartGame()" class="px-8 py-3.5 rounded-xl bg-gradient-purple text-white font-extrabold text-base tracking-wide purple-glow hover:scale-105 transition-all flex items-center gap-2">
+                                <i data-lucide="rotate-cw" class="w-5 h-5"></i> TRY AGAIN
+                            </button>
+                            <button onclick="shareScore()" class="px-6 py-3.5 rounded-xl glass-panel text-white font-bold text-sm tracking-wide hover:border-brand-primary transition-all flex items-center gap-2">
+                                <i data-lucide="share-2" class="w-4 h-4 text-brand-accent"></i> SHARE SCORE
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- VICTORY / POND REACHED SCREEN -->
+                    <div id="screen-victory" class="hidden absolute inset-0 bg-brand-dark/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-20">
+                        <div class="text-5xl mb-3 animate-bounce">🌊🐸🎉</div>
+                        <h3 class="text-3xl sm:text-4xl font-black text-brand-frog mb-1">POND REACHED!</h3>
+                        <p class="text-brand-lavender/80 text-sm mb-4">Safe across the Monad River!</p>
+                        <div class="glass-panel rounded-2xl p-4 mb-6 w-64 max-w-full border border-brand-primary/30 flex flex-col gap-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-brand-lavender/70">Victory Score:</span>
+                                <span id="vic-score" class="font-bold text-white font-arcade">0</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-brand-lavender/70">Distance:</span>
+                                <span class="font-bold text-brand-frog font-arcade">FINISH</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-center gap-3">
+                            <button onclick="restartGame()" class="px-6 py-3 rounded-xl bg-gradient-purple text-white font-bold text-sm tracking-wide purple-glow hover:scale-105 transition-all">
+                                PLAY AGAIN
+                            </button>
+                            <button onclick="shareScore()" class="px-6 py-3 rounded-xl glass-panel text-white font-bold text-sm tracking-wide hover:border-brand-primary transition-all">
+                                SHARE SCORE
+                            </button>
+                            <a href="https://www.x.com/FroggyNad" target="_blank" class="px-6 py-3 rounded-xl glass-panel text-brand-accent font-bold text-sm tracking-wide hover:border-brand-primary transition-all">
+                                FOLLOW FROGGY
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- On-Screen D-Pad for Mobile -->
+                <div class="mt-6 flex flex-col items-center justify-center sm:hidden">
+                    <span class="text-xs font-bold text-brand-lavender/60 mb-2 uppercase tracking-wider">ON-SCREEN CONTROLS</span>
+                    <div class="grid grid-cols-3 gap-2 w-48">
+                        <div></div>
+                        <button onclick="handleControl('UP')" class="glass-panel py-3 rounded-xl flex items-center justify-center text-white active:bg-brand-primary/40 border border-brand-primary/30">
+                            <i data-lucide="chevron-up" class="w-6 h-6"></i>
                         </button>
-                        <button onclick="shareScore()" class="px-7 py-4 rounded-2xl glass-panel border border-monadPurple/40 font-bold text-white hover:bg-monadPurple/10 transition-all flex items-center gap-2 text-sm md:text-base shadow-lg">
-                            <i data-lucide="share-2" class="w-4 h-4"></i> SHARE SCORE
+                        <div></div>
+                        <button onclick="handleControl('LEFT')" class="glass-panel py-3 rounded-xl flex items-center justify-center text-white active:bg-brand-primary/40 border border-brand-primary/30">
+                            <i data-lucide="chevron-left" class="w-6 h-6"></i>
                         </button>
-                        <a href="https://www.x.com/FroggyNad" target="_blank" class="px-7 py-4 rounded-2xl bg-electricViolet text-deepBlack font-bold hover:bg-monadPurple transition-all flex items-center gap-2 text-sm md:text-base shadow-lg">
-                            FOLLOW FROGGY
-                        </a>
+                        <button onclick="handleControl('DOWN')" class="glass-panel py-3 rounded-xl flex items-center justify-center text-white active:bg-brand-primary/40 border border-brand-primary/30">
+                            <i data-lucide="chevron-down" class="w-6 h-6"></i>
+                        </button>
+                        <button onclick="handleControl('RIGHT')" class="glass-panel py-3 rounded-xl flex items-center justify-center text-white active:bg-brand-primary/40 border border-brand-primary/30">
+                            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- GAME OVER MODAL OVERLAY -->
-                <div id="gameOverModal" class="absolute inset-0 bg-deepBlack/95 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center z-30 hidden">
-                    <div class="text-5xl md:text-6xl mb-3">💥 🐸</div>
-                    <h3 class="text-3xl md:text-5xl font-heading font-extrabold text-softLavender mb-2 uppercase tracking-wider">ROADKILL</h3>
-                    <p class="text-softLavender/80 text-base md:text-lg mb-6">
-                        Oof! The traffic got you. Score: <span id="overScore" class="font-bold text-white">0</span>
-                    </p>
-                    <button onclick="startGame()" class="px-9 py-4 rounded-2xl bg-gradient-to-r from-monadPurple to-electricViolet font-bold text-white shadow-neon-intense hover:scale-105 transition-all text-base">
-                        TRY AGAIN
-                    </button>
-                </div>
-
-            </div>
-
-            <!-- INTEGRATED ON-SCREEN CONTROLS -->
-            <div class="mt-6 flex flex-col items-center justify-center gap-2.5">
-                <span class="text-xs text-softLavender/60 uppercase tracking-widest font-bold">Futuristic On-Screen D-Pad & Swipe Support</span>
-                <div class="flex flex-col items-center gap-1.5">
-                    <button onclick="handleTouchControl('up')" class="w-14 h-14 md:w-16 md:h-16 rounded-2xl glass-panel border border-monadPurple/60 flex items-center justify-center text-white font-bold text-xl active:bg-monadPurple/50 shadow-neon transition-transform active:scale-95">↑</button>
-                    <div class="flex gap-4">
-                        <button onclick="handleTouchControl('left')" class="w-14 h-14 md:w-16 md:h-16 rounded-2xl glass-panel border border-monadPurple/60 flex items-center justify-center text-white font-bold text-xl active:bg-monadPurple/50 shadow-neon transition-transform active:scale-95">←</button>
-                        <button onclick="handleTouchControl('down')" class="w-14 h-14 md:w-16 md:h-16 rounded-2xl glass-panel border border-monadPurple/60 flex items-center justify-center text-white font-bold text-xl active:bg-monadPurple/50 shadow-neon transition-transform active:scale-95">↓</button>
-                        <button onclick="handleTouchControl('right')" class="w-14 h-14 md:w-16 md:h-16 rounded-2xl glass-panel border border-monadPurple/60 flex items-center justify-center text-white font-bold text-xl active:bg-monadPurple/50 shadow-neon transition-transform active:scale-95">→</button>
+                <!-- Desktop Controls Hint -->
+                <div class="mt-4 hidden sm:flex items-center justify-center gap-6 text-xs text-brand-lavender/70 font-medium">
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-1 rounded bg-brand-primary/20 border border-brand-primary/40 text-white font-arcade">W A S D</span> or <span class="px-2 py-1 rounded bg-brand-primary/20 border border-brand-primary/40 text-white font-arcade">ARROWS</span> to move
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-1 rounded bg-brand-primary/20 border border-brand-primary/40 text-white font-arcade">SWIPE</span> on mobile
                     </div>
                 </div>
-                <span class="text-xs text-softLavender/50 mt-1">Desktop: W A SD or Arrow Keys | Mobile: Swipe Up/Down/Left/Right or tap D-Pad</span>
-            </div>
-        </div>
-    </section>
 
-    <!-- HOW TO PLAY MODAL -->
-    <div id="howToPlayModal" class="fixed inset-0 bg-deepBlack/90 backdrop-blur-xl z-50 flex items-center justify-center p-6 hidden">
-        <div class="max-w-lg w-full glass-panel p-8 rounded-[28px] border border-monadPurple/60 relative shadow-2xl">
-            <button onclick="closeHowToPlay()" class="absolute top-5 right-5 text-softLavender hover:text-white p-1">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            <h3 class="text-2xl font-heading font-extrabold mb-6 uppercase text-center text-monadPurple tracking-wide">HOW TO PLAY</h3>
-            <div class="space-y-4 text-softLavender text-sm md:text-base">
-                <div class="flex items-center gap-4 p-4 rounded-2xl glass-panel border border-monadPurple/30">
-                    <span class="text-2xl">🐸</span>
-                    <div><strong class="text-white block">MOVE FROGGY</strong> Use W/A/S/D, Arrow keys, swipe gestures, or on-screen D-Pad.</div>
-                </div>
-                <div class="flex items-center gap-4 p-4 rounded-2xl glass-panel border border-monadPurple/30">
-                    <span class="text-2xl">🚗</span>
-                    <div><strong class="text-white block">AVOID TRAFFIC</strong> Dodge high-speed sports cars moving across Monad highway lanes.</div>
-                </div>
-                <div class="flex items-center gap-4 p-4 rounded-2xl glass-panel border border-monadPurple/30">
-                    <span class="text-2xl">⚡</span>
-                    <div><strong class="text-white block">RELAXED SPEEDS</strong> Traffic is smooth and calibrated for an enjoyable, easy run!</div>
-                </div>
-                <div class="flex items-center gap-4 p-4 rounded-2xl glass-panel border border-monadPurple/30">
-                    <span class="text-2xl">🌊</span>
-                    <div><strong class="text-white block">REACH THE POND</strong> Cross the road to claim victory in the glowing purple river.</div>
-                </div>
-            </div>
-            <button onclick="closeHowToPlay()" class="w-full mt-6 py-4 rounded-xl bg-monadPurple font-bold text-white hover:bg-brightViolet transition-all shadow-neon text-base">
-                GOT IT, LET'S PLAY!
-            </button>
-        </div>
-    </div>
-
-    <!-- POND LEGENDS LEADERBOARD -->
-    <section class="py-20 px-6 relative z-20">
-        <div class="max-w-4xl mx-auto glass-panel rounded-[32px] p-8 md:p-12 border border-monadPurple/50 shadow-2xl bg-gradient-to-b from-cardBg/80 to-midnightPurple/90">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-10 text-center md:text-left">
-                <div>
-                    <h3 class="text-3xl md:text-4xl font-heading font-extrabold uppercase gradient-text">POND LEGENDS</h3>
-                    <p class="text-softLavender/70 text-sm mt-1">Top frog crossers dominating the Monad ecosystem.</p>
-                </div>
-                <div class="px-4 py-2 rounded-xl glass-panel border border-monadPurple/40 text-xs font-semibold text-monadPurple shadow-neon">
-                    BACKEND INTEGRATION READY
-                </div>
             </div>
 
-            <!-- Podium Representation for Top 3 -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                <!-- #2 Rank -->
-                <div class="glass-panel p-6 rounded-2xl border border-monadPurple/40 text-center relative flex flex-col items-center order-2 md:order-1 hover:border-monadPurple transition-all">
-                    <div class="w-10 h-10 rounded-full bg-brightViolet/20 border border-brightViolet/50 flex items-center justify-center font-bold text-brightViolet mb-3 shadow-neon">#2</div>
-                    <span class="font-heading font-bold text-white text-lg">⚡ HopMaster</span>
-                    <span class="text-monadPurple font-bold text-xl mt-2">10,420 PTS</span>
-                    <span class="text-xs text-softLavender/60 mt-1">Distance: 50m</span>
-                </div>
-
-                <!-- #1 Rank (Crown / Elevated feel) -->
-                <div class="glass-panel p-6 rounded-2xl border-2 border-monadPurple text-center relative flex flex-col items-center order-1 md:order-2 shadow-neon bg-gradient-to-t from-monadPurple/10 to-transparent scale-[1.03]">
-                    <div class="absolute -top-4 w-8 h-8 rounded-full bg-monadPurple text-white flex items-center justify-center text-xs font-bold shadow-neon">👑</div>
-                    <div class="w-12 h-12 rounded-full bg-monadPurple/30 border border-monadPurple flex items-center justify-center font-bold text-white mb-3 shadow-neon">#1</div>
-                    <span class="font-heading font-bold text-white text-xl">🐸 MonadKing</span>
-                    <span class="text-brightViolet font-bold text-2xl mt-2">12,850 PTS</span>
-                    <span class="text-xs text-softLavender/70 mt-1">Distance: 50m</span>
-                </div>
-
-                <!-- #3 Rank -->
-                <div class="glass-panel p-6 rounded-2xl border border-monadPurple/40 text-center relative flex flex-col items-center order-3 hover:border-monadPurple transition-all">
-                    <div class="w-10 h-10 rounded-full bg-softLavender/20 border border-softLavender/50 flex items-center justify-center font-bold text-softLavender mb-3">#3</div>
-                    <span class="font-heading font-bold text-white text-lg">🚀 PondRunner</span>
-                    <span class="text-monadPurple font-bold text-xl mt-2">9,150 PTS</span>
-                    <span class="text-xs text-softLavender/60 mt-1">Distance: 45m</span>
-                </div>
-            </div>
-
-            <!-- Leaderboard Table -->
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="border-b border-monadPurple/30 text-softLavender/60 text-xs uppercase tracking-wider">
-                            <th class="py-3 px-4">RANK</th>
-                            <th class="py-3 px-4">PLAYER</th>
-                            <th class="py-3 px-4 text-right">SCORE</th>
-                            <th class="py-3 px-4 text-right">DISTANCE</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-monadPurple/15 text-sm font-medium">
-                        <tr class="hover:bg-monadPurple/10 transition-colors">
-                            <td class="py-4 px-4 font-bold text-monadPurple">#1</td>
-                            <td class="py-4 px-4 flex items-center gap-2">🐸 MonadKing</td>
-                            <td class="py-4 px-4 text-right font-bold text-monadPurple">12,850</td>
-                            <td class="py-4 px-4 text-right text-softLavender">50m</td>
-                        </tr>
-                        <tr class="hover:bg-monadPurple/10 transition-colors">
-                            <td class="py-4 px-4 font-bold text-brightViolet">#2</td>
-                            <td class="py-4 px-4 flex items-center gap-2">⚡ HopMaster</td>
-                            <td class="py-4 px-4 text-right font-bold text-monadPurple">10,420</td>
-                            <td class="py-4 px-4 text-right text-softLavender">50m</td>
-                        </tr>
-                        <tr class="hover:bg-monadPurple/10 transition-colors">
-                            <td class="py-4 px-4 font-bold text-softLavender">#3</td>
-                            <td class="py-4 px-4 flex items-center gap-2">🚀 PondRunner</td>
-                            <td class="py-4 px-4 text-right font-bold text-monadPurple">9,150</td>
-                            <td class="py-4 px-4 text-right text-softLavender">45m</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </div>
     </section>
 
     <!-- TOKENOMICS SECTION -->
-    <section id="tokenomics" class="py-24 px-6 relative z-20">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center space-y-4 mb-16">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-monadPurple/40 text-brightViolet text-xs font-semibold tracking-wider shadow-neon">
+    <section id="tokenomics" class="py-20 px-4 sm:px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-brand-primary/30 text-brand-accent text-xs font-bold tracking-wider uppercase mb-3">
                     TOKENOMICS
                 </div>
-                <h2 class="text-4xl md:text-5xl font-heading font-extrabold uppercase tracking-tight gradient-text">
-                    THE POND TOKEN
-                </h2>
-                <h3 class="text-3xl md:text-4xl font-heading font-extrabold text-monadPurple">$FROGGY</h3>
-                <p class="text-softLavender/80 text-lg max-w-xl mx-auto">
-                    Total Supply: <span class="text-white font-bold">1,000,000,000 $FROGGY</span> (1B Total Supply)
-                </p>
+                <h2 class="text-4xl sm:text-5xl font-black text-white tracking-tight">THE POND TOKEN</h2>
+                <p class="text-brand-lavender/80 text-base sm:text-lg mt-2">Fair, transparent, and built for the community.</p>
             </div>
 
-            <!-- Visually Dominant Tokenomics Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                <!-- 97% Public Fair Launch (Visually Dominant Ring Card) -->
-                <div class="md:col-span-7 glass-panel p-8 md:p-12 rounded-[32px] border-2 border-monadPurple/60 shadow-neon-intense relative group hover:scale-[1.01] transition-all bg-gradient-to-br from-cardBg via-darkViolet to-deepBlack overflow-hidden">
-                    <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-monadPurple/20 rounded-full blur-3xl"></div>
-                    <div class="absolute top-5 right-6 px-4 py-1.5 rounded-full bg-monadPurple/30 border border-monadPurple/60 text-softLavender text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-neon">
-                        Fair Launch Focus
+            <!-- Token Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="glass-panel rounded-3xl p-8 flex flex-col items-center text-center border border-brand-primary/30 purple-glow">
+                    <span class="text-xs font-bold text-brand-lavender/60 uppercase tracking-widest mb-2">TOKEN TICKER</span>
+                    <span class="text-3xl sm:text-4xl font-black text-white font-arcade">$FROGGY</span>
+                    <span class="text-xs text-brand-accent mt-2 font-semibold">Monad Native Asset</span>
+                </div>
+                <div class="glass-panel rounded-3xl p-8 flex flex-col items-center text-center border border-brand-primary/30 purple-glow">
+                    <span class="text-xs font-bold text-brand-lavender/60 uppercase tracking-widest mb-2">TOTAL SUPPLY</span>
+                    <span class="text-2xl sm:text-3xl font-black text-white font-arcade">1,000,000,000</span>
+                    <span class="text-xs text-brand-accent mt-2 font-semibold">Fixed Supply</span>
+                </div>
+                <div class="glass-panel rounded-3xl p-8 flex flex-col items-center text-center border border-brand-primary/30 purple-glow">
+                    <span class="text-xs font-bold text-brand-lavender/60 uppercase tracking-widest mb-2">LAUNCH MODEL</span>
+                    <span class="text-2xl sm:text-3xl font-black text-white font-arcade">Fair Launch</span>
+                    <span class="text-xs text-brand-accent mt-2 font-semibold">No VC Allocation</span>
+                </div>
+            </div>
+
+            <!-- Allocation Visual Card -->
+            <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-brand-primary/40 relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-primary/20 rounded-full blur-3xl pointer-events-none"></div>
+                <h3 class="text-2xl font-black text-white mb-8 text-center sm:text-left">SUPPLY ALLOCATION</h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <!-- Visual Percentage Bar / Circle representation -->
+                    <div class="flex flex-col gap-6">
+                        <!-- 97% Public -->
+                        <div class="flex flex-col gap-2">
+                            <div class="flex justify-between items-center text-sm font-bold">
+                                <span class="text-white flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-brand-primary inline-block"></span>
+                                    PUBLIC FAIR LAUNCH
+                                </span>
+                                <span class="text-brand-accent font-arcade text-lg">97%</span>
+                            </div>
+                            <div class="w-full h-4 rounded-full bg-brand-dark overflow-hidden p-0.5 border border-brand-primary/30">
+                                <div class="h-full bg-gradient-purple rounded-full w-[97%] purple-glow"></div>
+                            </div>
+                        </div>
+
+                        <!-- 3% Dev -->
+                        <div class="flex flex-col gap-2">
+                            <div class="flex justify-between items-center text-sm font-bold">
+                                <span class="text-white flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-brand-lavender/40 inline-block"></span>
+                                    DEV BUY
+                                </span>
+                                <span class="text-brand-lavender font-arcade text-lg">3%</span>
+                            </div>
+                            <div class="w-full h-4 rounded-full bg-brand-dark overflow-hidden p-0.5 border border-brand-primary/30">
+                                <div class="h-full bg-brand-lavender/50 rounded-full w-[3%]"></div>
+                            </div>
+                        </div>
                     </div>
-                    <span class="text-6xl md:text-8xl font-heading font-black text-monadPurple block mb-3">97%</span>
-                    <h4 class="text-2xl md:text-3xl font-heading font-bold text-white uppercase mb-4 tracking-wide">PUBLIC FAIR LAUNCH</h4>
-                    <p class="text-softLavender/80 text-base md:text-lg leading-relaxed font-light">
-                        Built entirely for the community. The vast majority of the supply belongs right here in the Monad pond. Zero insider heavy unlocks. Pure decentralized growth.
-                    </p>
-                </div>
 
-                <!-- 3% Dev Buy -->
-                <div class="md:col-span-5 glass-panel p-8 md:p-12 rounded-[32px] border border-monadPurple/40 shadow-xl group hover:scale-[1.01] transition-all bg-gradient-to-b from-cardBg/80 to-midnightPurple/90">
-                    <span class="text-5xl md:text-6xl font-heading font-black text-electricViolet block mb-3">3%</span>
-                    <h4 class="text-xl md:text-2xl font-heading font-bold text-white uppercase mb-4 tracking-wide">DEV BUY</h4>
-                    <p class="text-softLavender/80 text-base md:text-lg leading-relaxed font-light">
-                        Dedicated team allocation ensuring continuous development, ecosystem expansion, and long-term pond dominance.
-                    </p>
+                    <!-- Right Info Box -->
+                    <div class="glass-panel rounded-2xl p-6 border border-brand-primary/20 flex flex-col gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-primary/20 flex items-center justify-center text-brand-accent border border-brand-primary/30">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Secure & Transparent</h4>
+                                <p class="text-xs text-brand-lavender/70">Fully decentralized liquidity on Monad.</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-brand-lavender/80 leading-relaxed">
+                            Froggy is designed for maximum meme culture alignment and pure arcade fun. 97% of the supply is dedicated directly to the public fair launch pool with zero tax and burned liquidity.
+                        </p>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about" class="py-24 px-6 relative z-20">
-        <div class="max-w-6xl mx-auto glass-panel rounded-[32px] p-8 md:p-16 border border-monadPurple/50 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-gradient-to-r from-cardBg/90 to-midnightPurple/90">
+    <section id="about" class="py-20 px-4 sm:px-6 relative z-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Image / Visual -->
             <div class="lg:col-span-5 flex justify-center">
-                <div class="relative w-72 h-72 rounded-[28px] overflow-hidden border border-monadPurple/60 shadow-neon-intense">
-                    <div class="absolute inset-0 bg-monadPurple/20 blur-xl"></div>
-                    <img src="https://i.imgur.com/Mm1igju.jpeg" alt="Froggy" class="relative w-full h-full object-cover">
+                <div class="relative w-72 h-72 sm:w-96 sm:h-96 rounded-3xl glass-panel p-6 border border-brand-primary/40 purple-glow flex items-center justify-center">
+                    <div class="absolute inset-0 bg-brand-primary/10 rounded-3xl blur-xl"></div>
+                    <img src="https://i.imgur.com/Mm1igju.jpeg" alt="FROGGY About" class="w-64 h-64 sm:w-80 sm:h-80 object-cover rounded-2xl border-2 border-brand-primary/50 relative z-10 purple-glow">
                 </div>
             </div>
-            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-monadPurple/40 text-softLavender text-xs font-semibold tracking-wider">
-                    ORIGIN STORY
+
+            <!-- Right Content -->
+            <div class="lg:col-span-7 flex flex-col items-start gap-6">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-brand-primary/30 text-brand-accent text-xs font-bold tracking-wider uppercase">
+                    ABOUT FROGGY
                 </div>
-                <h2 class="text-3xl md:text-5xl font-heading font-extrabold uppercase tracking-tight gradient-text leading-tight">
-                    BORN IN MONAD. RAISED BY THE POND.
+                
+                <h2 class="text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+                    BORN IN MONAD.<br>RAISED BY THE POND.
                 </h2>
-                <p class="text-softLavender/80 text-base md:text-lg leading-relaxed font-light">
-                    Froggy is a fast-moving meme born on Monad and raised by the pond. No complicated story. No unnecessary noise. Just a frog, a lightning-fast blockchain, and a community ready to cross the road and conquer the ecosystem.
+
+                <p class="text-brand-lavender/90 text-lg leading-relaxed font-normal">
+                    "Froggy is a fast-moving meme born on Monad and raised by the pond. No complicated story. No unnecessary noise. Just a frog, a fast chain, and a community ready to cross the road."
                 </p>
-                <div class="flex justify-center lg:justify-start gap-4 pt-2">
-                    <a href="#game" class="px-8 py-4 rounded-2xl bg-monadPurple font-bold text-white text-sm md:text-base hover:bg-brightViolet transition-all shadow-neon">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full pt-2">
+                    <div class="glass-panel p-5 rounded-2xl border border-brand-primary/20">
+                        <h3 class="font-bold text-white text-base mb-1 flex items-center gap-2">
+                            <i data-lucide="zap" class="w-4 h-4 text-brand-accent"></i> Lightning Fast
+                        </h3>
+                        <p class="text-xs text-brand-lavender/70">Powered by Monad's high-performance parallel execution layer.</p>
+                    </div>
+                    <div class="glass-panel p-5 rounded-2xl border border-brand-primary/20">
+                        <h3 class="font-bold text-white text-base mb-1 flex items-center gap-2">
+                            <i data-lucide="users" class="w-4 h-4 text-brand-accent"></i> Pure Community
+                        </h3>
+                        <p class="text-xs text-brand-lavender/70">A decentralized meme brand owned entirely by the pond residents.</p>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <a href="#game" class="px-8 py-4 rounded-2xl bg-gradient-purple text-white font-extrabold text-base tracking-wide purple-glow hover:scale-105 transition-all inline-flex items-center gap-3">
+                        <i data-lucide="waves" class="w-5 h-5"></i>
                         ENTER THE POND
                     </a>
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- ROADMAP SECTION -->
-    <section id="roadmap" class="py-24 px-6 relative z-20">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center space-y-4 mb-16">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-monadPurple/40 text-brightViolet text-xs font-semibold tracking-wider shadow-neon">
-                    JOURNEY
-                </div>
-                <h2 class="text-4xl md:text-5xl font-heading font-extrabold uppercase tracking-tight gradient-text">
+    <section id="roadmap" class="py-20 px-4 sm:px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-brand-primary/30 text-brand-accent text-xs font-bold tracking-wider uppercase mb-3">
                     ROADMAP
-                </h2>
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-black text-white tracking-tight">THE JOURNEY AHEAD</h2>
+                <p class="text-brand-lavender/80 text-base sm:text-lg mt-2">Three stages to conquer the Monad ecosystem.</p>
             </div>
 
+            <!-- Roadmap Grid / Timeline -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Milestone 01 -->
-                <div class="glass-panel p-8 md:p-10 rounded-[32px] border border-monadPurple/40 relative group hover:border-monadPurple hover:shadow-neon transition-all bg-gradient-to-b from-cardBg/80 to-deepBlack">
-                    <span class="text-6xl font-heading font-black text-monadPurple/25 absolute top-4 right-6 group-hover:text-monadPurple/50 transition-colors">01</span>
-                    <h3 class="text-2xl font-heading font-bold mb-3 text-white uppercase mt-4 tracking-wide">01 — HATCH</h3>
-                    <p class="text-softLavender/70 text-base leading-relaxed font-light">Froggy arrives on Monad. Community forms around the pond.</p>
+                
+                <!-- Stage 01 -->
+                <div class="glass-panel rounded-3xl p-8 border border-brand-primary/30 purple-glow relative group hover:border-brand-primary transition-all">
+                    <div class="absolute -top-4 left-8 px-4 py-1 rounded-full bg-brand-primary text-white font-arcade text-sm font-bold shadow-lg">
+                        01 — HATCH
+                    </div>
+                    <div class="mt-4 mb-4 text-brand-accent">
+                        <i data-lucide="egg" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-3">Froggy Arrives</h3>
+                    <p class="text-brand-lavender/80 text-sm leading-relaxed">
+                        Froggy arrives on Monad. Fair launch execution, community initialization, initial meme takeovers, and social presence establishment across Web3.
+                    </p>
                 </div>
 
-                <!-- Milestone 02 -->
-                <div class="glass-panel p-8 md:p-10 rounded-[32px] border border-monadPurple/40 relative group hover:border-monadPurple hover:shadow-neon transition-all bg-gradient-to-b from-cardBg/80 to-deepBlack">
-                    <span class="text-6xl font-heading font-black text-monadPurple/25 absolute top-4 right-6 group-hover:text-monadPurple/50 transition-colors">02</span>
-                    <h3 class="text-2xl font-heading font-bold mb-3 text-white uppercase mt-4 tracking-wide">02 — CROSS</h3>
-                    <p class="text-softLavender/70 text-base leading-relaxed font-light">The community grows and Froggy takes over the Monad pond ecosystem.</p>
+                <!-- Stage 02 -->
+                <div class="glass-panel rounded-3xl p-8 border border-brand-primary/30 purple-glow relative group hover:border-brand-primary transition-all">
+                    <div class="absolute -top-4 left-8 px-4 py-1 rounded-full bg-brand-primary text-white font-arcade text-sm font-bold shadow-lg">
+                        02 — CROSS
+                    </div>
+                    <div class="mt-4 mb-4 text-brand-accent">
+                        <i data-lucide="car" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-3">Pond Takeover</h3>
+                    <p class="text-brand-lavender/80 text-sm leading-relaxed">
+                        The community grows and Froggy takes over the pond. Viral marketing campaigns, tier-1 listings tracking, and ecosystem partnerships on Monad.
+                    </p>
                 </div>
 
-                <!-- Milestone 03 -->
-                <div class="glass-panel p-8 md:p-10 rounded-[32px] border border-monadPurple/40 relative group hover:border-monadPurple hover:shadow-neon transition-all bg-gradient-to-b from-cardBg/80 to-deepBlack">
-                    <span class="text-6xl font-heading font-black text-monadPurple/25 absolute top-4 right-6 group-hover:text-monadPurple/50 transition-colors">03</span>
-                    <h3 class="text-2xl font-heading font-bold mb-3 text-white uppercase mt-4 tracking-wide">03 — SPLASH</h3>
-                    <p class="text-softLavender/70 text-base leading-relaxed font-light">More arcade games. More chaos. More Froggy dominance on Monad.</p>
+                <!-- Stage 03 -->
+                <div class="glass-panel rounded-3xl p-8 border border-brand-primary/30 purple-glow relative group hover:border-brand-primary transition-all">
+                    <div class="absolute -top-4 left-8 px-4 py-1 rounded-full bg-brand-primary text-white font-arcade text-sm font-bold shadow-lg">
+                        03 — SPLASH
+                    </div>
+                    <div class="mt-4 mb-4 text-brand-accent">
+                        <i data-lucide="waves" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-3">Ultimate Chaos</h3>
+                    <p class="text-brand-lavender/80 text-sm leading-relaxed">
+                        More games. More chaos. More Froggy. Expansion of the arcade ecosystem with new interactive game modes and exclusive holder perks.
+                    </p>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- COMMUNITY CTA SECTION -->
-    <section id="community" class="py-24 px-6 relative z-20 text-center">
-        <div class="max-w-4xl mx-auto glass-panel rounded-[36px] p-12 md:p-20 border border-monadPurple/60 shadow-neon-intense relative overflow-hidden bg-gradient-to-br from-midnightPurple via-darkViolet to-deepBlack">
-            <div class="absolute inset-0 bg-gradient-to-tr from-monadPurple/25 via-transparent to-electricViolet/20 pointer-events-none"></div>
+    <section id="community" class="py-20 px-4 sm:px-6 relative z-10">
+        <div class="max-w-5xl mx-auto glass-panel rounded-[3rem] p-8 sm:p-16 border border-brand-primary/40 purple-glow-lg text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/20 via-brand-secondary/20 to-brand-primary/20 rounded-[3rem] blur-2xl pointer-events-none"></div>
             
-            <div class="relative z-10 space-y-6">
-                <div class="w-20 h-20 rounded-2xl overflow-hidden border border-monadPurple/60 shadow-neon mx-auto">
-                    <img src="https://i.imgur.com/Mm1igju.jpeg" alt="Logo" class="w-full h-full object-cover">
+            <div class="relative z-10 flex flex-col items-center">
+                <div class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-brand-primary mb-6 purple-glow animate-float">
+                    <img src="https://i.imgur.com/Mm1igju.jpeg" alt="FROGGY" class="w-full h-full object-cover">
                 </div>
-                <h2 class="text-4xl md:text-6xl font-heading font-extrabold uppercase gradient-text tracking-tight">
+
+                <h2 class="text-4xl sm:text-6xl font-black text-white tracking-tight mb-4">
                     JOIN THE POND
                 </h2>
-                <p class="text-softLavender/80 text-lg md:text-xl max-w-lg mx-auto font-light">
-                    The road is dangerous. The pond is waiting.
+                
+                <p class="text-brand-lavender/90 text-lg sm:text-xl max-w-xl mb-8 font-normal">
+                    "The road is dangerous. The pond is waiting."
                 </p>
-                <div class="flex flex-wrap items-center justify-center gap-4 pt-6">
-                    <a href="https://www.x.com/FroggyNad" target="_blank" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-monadPurple via-brightViolet to-electricViolet font-bold text-white shadow-neon-intense hover:scale-105 transition-all flex items-center gap-2 text-base">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> FOLLOW ON X
+
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <a href="https://www.x.com/FroggyNad" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-2xl bg-gradient-purple text-white font-extrabold text-base tracking-wide purple-glow hover:scale-105 transition-all flex items-center gap-3">
+                        <i data-lucide="twitter" class="w-5 h-5"></i>
+                        FOLLOW FROGGY
                     </a>
-                    <a href="https://t.me/FroggyNad" target="_blank" class="px-8 py-4 rounded-2xl glass-panel border border-monadPurple/40 font-bold text-white hover:bg-monadPurple/10 transition-all flex items-center gap-2 text-base shadow-lg">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.12.098.153.228.166.331.011.1.023.327.005.502z"/></svg> JOIN TELEGRAM
+                    <a href="https://t.me/FroggyNad" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-2xl glass-panel text-white font-bold text-base tracking-wide hover:border-brand-primary transition-all flex items-center gap-3">
+                        <i data-lucide="send" class="w-5 h-5 text-brand-accent"></i>
+                        JOIN TELEGRAM
                     </a>
-                    <a href="#game" class="px-8 py-4 rounded-2xl bg-monadPurple text-white font-bold hover:scale-105 transition-all shadow-neon text-base">
+                    <a href="#game" class="px-8 py-4 rounded-2xl glass-panel text-white font-bold text-base tracking-wide hover:border-brand-primary transition-all flex items-center gap-3">
+                        <i data-lucide="gamepad-2" class="w-5 h-5 text-brand-frog"></i>
                         PLAY THE GAME
                     </a>
                 </div>
@@ -614,415 +664,568 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-12 px-6 border-t border-monadPurple/30 glass-panel relative z-20 bg-deepBlack/90">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+    <footer class="border-t border-brand-primary/20 py-12 px-4 sm:px-6 relative z-10 bg-brand-darkPurple">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            
+            <!-- Logo & Brand -->
             <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-xl overflow-hidden border border-monadPurple/40 shadow-neon">
-                    <img src="https://i.imgur.com/Mm1igju.jpeg" alt="Logo" class="w-full h-full object-cover">
+                <div class="w-10 h-10 rounded-xl overflow-hidden border border-brand-primary/50">
+                    <img src="https://i.imgur.com/Mm1igju.jpeg" alt="FROGGY" class="w-full h-full object-cover">
                 </div>
-                <span class="font-heading font-bold text-lg text-white">FROGGY <span class="text-monadPurple text-sm">($FROGGY)</span></span>
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-white text-base">FROGGY <span class="text-xs text-brand-accent">$FROGGY</span></span>
+                    <span class="text-xs text-brand-lavender/60">Born in Monad. Raised by the pond.</span>
+                </div>
             </div>
-            <div class="flex items-center gap-6 text-softLavender text-sm font-medium">
-                <a href="https://www.x.com/FroggyNad" target="_blank" class="hover:text-monadPurple transition-colors">X / Twitter</a>
-                <a href="https://t.me/FroggyNad" target="_blank" class="hover:text-monadPurple transition-colors">Telegram</a>
+
+            <!-- Social Links -->
+            <div class="flex items-center gap-4">
+                <a href="https://www.x.com/FroggyNad" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-lavender hover:text-white hover:border-brand-primary transition-all">
+                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                </a>
+                <a href="https://t.me/FroggyNad" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-lavender hover:text-white hover:border-brand-primary transition-all">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </a>
             </div>
-            <p class="text-softLavender/60 text-xs">
-                © 2026 FROGGY. Born in Monad. Raised by the pond. All rights reserved.
-            </p>
+
+            <!-- Copyright -->
+            <div class="text-xs text-brand-lavender/50">
+                © 2026 FROGGY. All rights reserved.
+            </div>
+
         </div>
     </footer>
 
-    <!-- JAVASCRIPT & ARCADE GAME ENGINE -->
+    <!-- HOW TO PLAY MODAL -->
+    <div id="modal-howto" class="hidden fixed inset-0 bg-brand-dark/90 backdrop-blur-md flex items-center justify-center p-4 z-50">
+        <div class="glass-panel rounded-3xl p-6 sm:p-8 max-w-lg w-full border border-brand-primary/50 purple-glow relative">
+            <button onclick="closeHowToPlay()" class="absolute top-4 right-4 w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-white hover:border-brand-primary">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h3 class="text-2xl font-black text-white mb-6 flex items-center gap-2">
+                <i data-lucide="help-circle" class="text-brand-accent"></i> HOW TO PLAY
+            </h3>
+            
+            <div class="flex flex-col gap-4 mb-8">
+                <div class="flex items-start gap-4 glass-panel p-4 rounded-2xl border border-brand-primary/20">
+                    <span class="text-2xl">🐸</span>
+                    <div>
+                        <h4 class="font-bold text-white text-base">MOVE</h4>
+                        <p class="text-xs text-brand-lavender/80">Use keyboard (W,A,S,D / Arrows), swipe gestures or on-screen D-pad.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 glass-panel p-4 rounded-2xl border border-brand-primary/20">
+                    <span class="text-2xl">🚗</span>
+                    <div>
+                        <h4 class="font-bold text-white text-base">AVOID TRAFFIC</h4>
+                        <p class="text-xs text-brand-lavender/80">Cars move in both directions across multiple lanes at varying speeds.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 glass-panel p-4 rounded-2xl border border-brand-primary/20">
+                    <span class="text-2xl">🌊</span>
+                    <div>
+                        <h4 class="font-bold text-white text-base">WATCH THE RIVER</h4>
+                        <p class="text-xs text-brand-lavender/80">Falling into the Monad River ends your run instantly.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 glass-panel p-4 rounded-2xl border border-brand-primary/20">
+                    <span class="text-2xl">🏆</span>
+                    <div>
+                        <h4 class="font-bold text-white text-base">REACH THE FINISH</h4>
+                        <p class="text-xs text-brand-lavender/80">Make it safely across the obstacle zone to claim victory.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="closeHowToPlay()" class="w-full py-3.5 rounded-xl bg-gradient-purple text-white font-extrabold text-base tracking-wide purple-glow">
+                GOT IT, LET'S PLAY
+            </button>
+        </div>
+    </div>
+
+    <!-- SOUND SYNTHESIZER / AUDIO SYSTEM & GAME ENGINE -->
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Navbar blur on scroll & Mobile menu toggle
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add('py-2');
-            } else {
-                navbar.classList.add('py-4');
-            }
-        });
-
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-
-        document.querySelectorAll('.mobile-link').forEach(link => {
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
             link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         });
 
-        // Sound Toggle state
+        // Audio System via Web Audio API
+        let audioCtx = null;
         let soundEnabled = true;
-        function toggleSound() {
-            soundEnabled = !soundEnabled;
-            const icon = document.getElementById('soundIcon');
-            const mobileIcon = document.getElementById('mobileSoundIcon');
-            const label = document.getElementById('soundLabel');
-            if (soundEnabled) {
-                if (icon) icon.setAttribute('data-lucide', 'volume-2');
-                if (mobileIcon) mobileIcon.setAttribute('data-lucide', 'volume-2');
-                if (label) label.innerText = 'SOUND ON';
-            } else {
-                if (icon) icon.setAttribute('data-lucide', 'volume-x');
-                if (mobileIcon) mobileIcon.setAttribute('data-lucide', 'volume-x');
-                if (label) label.innerText = 'MUTE';
-            }
-            lucide.createIcons();
-        }
 
-        // Web Audio API Sound Synthesizer
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        function playSound(type) {
-            if (!soundEnabled) return;
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
             if (audioCtx.state === 'suspended') {
                 audioCtx.resume();
             }
+        }
+
+        function playSound(type) {
+            if (!soundEnabled) return;
+            initAudio();
+            if (!audioCtx) return;
+
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
             osc.connect(gain);
             gain.connect(audioCtx.destination);
 
             const now = audioCtx.currentTime;
+
             if (type === 'hop') {
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(320, now);
-                osc.frequency.exponentialRampToValueAtTime(650, now + 0.1);
-                gain.gain.setValueAtTime(0.12, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(200, now);
+                osc.frequency.exponentialRampToValueAtTime(400, now + 0.1);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.1);
                 osc.start(now);
                 osc.stop(now + 0.1);
             } else if (type === 'crash') {
                 osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(140, now);
-                osc.frequency.linearRampToValueAtTime(35, now + 0.35);
-                gain.gain.setValueAtTime(0.25, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.linearRampToValueAtTime(40, now + 0.3);
+                gain.gain.setValueAtTime(0.3, now);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.3);
                 osc.start(now);
-                osc.stop(now + 0.35);
+                osc.stop(now + 0.3);
+            } else if (type === 'splash') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(300, now);
+                osc.frequency.exponentialRampToValueAtTime(80, now + 0.4);
+                gain.gain.setValueAtTime(0.25, now);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.4);
+                osc.start(now);
+                osc.stop(now + 0.4);
             } else if (type === 'victory') {
                 osc.type = 'triangle';
-                osc.frequency.setValueAtTime(440, now);
-                osc.frequency.setValueAtTime(660, now + 0.12);
-                osc.frequency.setValueAtTime(880, now + 0.24);
+                osc.frequency.setValueAtTime(300, now);
+                osc.frequency.setValueAtTime(450, now + 0.1);
+                osc.frequency.setValueAtTime(600, now + 0.2);
+                osc.frequency.setValueAtTime(800, now + 0.3);
                 gain.gain.setValueAtTime(0.2, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.5);
                 osc.start(now);
                 osc.stop(now + 0.5);
             }
         }
 
-        // How to play modal
-        function openHowToPlay() {
-            document.getElementById('howToPlayModal').classList.remove('hidden');
-        }
-        function closeHowToPlay() {
-            document.getElementById('howToPlayModal').classList.add('hidden');
+        function toggleGlobalSound() {
+            soundEnabled = !soundEnabled;
+            const icons = document.querySelectorAll('#sound-icon, .mobile-sound-icon');
+            icons.forEach(icon => {
+                icon.setAttribute('data-lucide', soundEnabled ? 'volume-2' : 'volume-x');
+            });
+            lucide.createIcons();
         }
 
-        // --- RESPONSIVE ARCADE GAME ENGINE ---
+        // Modal Controls
+        function openHowToPlay() {
+            document.getElementById('modal-howto').classList.remove('hidden');
+        }
+        function closeHowToPlay() {
+            document.getElementById('modal-howto').classList.add('hidden');
+        }
+
+        // --- GAME ENGINE (FROGGY ROAD RUN) ---
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
 
-        function resizeCanvas() {
-            const rect = canvas.getBoundingClientRect();
-            canvas.width = rect.width * window.devicePixelRatio;
-            canvas.height = rect.height * window.devicePixelRatio;
-            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        let gameRunning = false;
+        // Game State
+        let gameState = 'START'; // START, PLAYING, GAMEOVER, VICTORY
         let score = 0;
         let bestScore = localStorage.getItem('froggy_best') || 0;
         let lives = 3;
         let distance = 0;
-        const maxDistance = 50;
 
-        document.getElementById('hudBest').innerText = bestScore;
+        document.getElementById('hud-best').innerText = bestScore;
 
+        // Grid & World dimensions
+        const COLS = 13;
+        const ROWS = 13; // 0 to 12
+        let tileSize = 40;
+
+        // Frog object
         let frog = {
-            x: 400,
-            y: 650,
-            size: 32,
-            speed: 40
+            gridX: 6,
+            gridY: 12,
+            x: 0,
+            y: 0,
+            targetX: 0,
+            targetY: 0,
+            animProgress: 1,
+            squash: 1
         };
 
-        let lanes = [];
-        function initLanes() {
-            lanes = [];
-            const vw = canvas.width / window.devicePixelRatio;
-            const vh = canvas.height / window.devicePixelRatio;
-            const laneHeight = vh / 12;
-            const startY = vh - 50;
-            
-            for (let i = 0; i < 11; i++) {
-                let y = startY - (i * laneHeight);
-                let isRoad = (i > 0 && i < 10);
-                lanes.push({
-                    y: y,
-                    isRoad: isRoad,
-                    cars: [],
-                    // Smooth, easy gameplay speeds
-                    speed: (i % 2 === 0 ? 1.0 : -1.0) * (0.8 + Math.random() * 0.9)
-                });
-            }
+        // Road Lanes setup (Rows 6 to 9 are roads, Row 4 is River, Row 0 is Finish Pond, 10-12 start safe)
+        // Row definitions:
+        // 0: Finish Line (Pond)
+        // 1-3: Safe bank / grass
+        // 4: River (Dangerous)
+        // 5: Safe bank
+        // 6-9: Road Lanes with cars
+        // 10-12: Start zone
 
-            lanes.forEach(lane => {
-                if (lane.isRoad) {
-                    let carCount = 1 + Math.floor(Math.random() * 2);
-                    for (let c = 0; c < carCount; c++) {
-                        lane.cars.push({
-                            x: c * (vw / carCount) + Math.random() * 120,
-                            width: 85 + Math.random() * 35,
-                            height: 30,
-                            // Luxury Purple / Violet hypercar palette
-                            color: ['#836EF9', '#9B7BFF', '#B18CFF', '#DDD4FF', '#5A43D0'][Math.floor(Math.random() * 5)]
-                        });
-                    }
+        let cars = [];
+        let particles = [];
+        let waterParticles = [];
+
+        function initCars() {
+            cars = [];
+            // Lanes: 6, 7, 8, 9
+            const roadRows = [6, 7, 8, 9];
+            roadRows.forEach((row, idx) => {
+                let dir = (idx % 2 === 0) ? 1 : -1;
+                let speed = (1 + Math.random() * 1.5) * dir;
+                let count = 2;
+                for (let i = 0; i < count; i++) {
+                    cars.push({
+                        row: row,
+                        x: i * 250 + Math.random() * 100,
+                        speed: speed,
+                        width: 70 + Math.random() * 30,
+                        colorType: Math.floor(Math.random() * 3)
+                    });
                 }
             });
         }
 
-        function startGame() {
-            document.getElementById('startModal').classList.add('hidden');
-            document.getElementById('victoryModal').classList.add('hidden');
-            document.getElementById('gameOverModal').classList.add('hidden');
+        function resizeCanvas() {
+            const container = canvas.parentElement;
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+            tileSize = canvas.width / COLS;
             
+            // Recompute frog pixel positions
+            frog.x = frog.gridX * tileSize + tileSize / 2;
+            frog.y = frog.gridY * tileSize + tileSize / 2;
+            frog.targetX = frog.x;
+            frog.targetY = frog.y;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function startGame() {
+            initAudio();
+            gameState = 'PLAYING';
             score = 0;
             lives = 3;
             distance = 0;
-            const vw = canvas.width / window.devicePixelRatio;
-            const vh = canvas.height / window.devicePixelRatio;
-            frog.x = vw / 2;
-            frog.y = vh - 40;
-            
-            initLanes();
-            gameRunning = true;
+            resetFrog();
+            initCars();
+            document.getElementById('screen-start').classList.add('hidden');
+            document.getElementById('screen-gameover').classList.add('hidden');
+            document.getElementById('screen-victory').classList.add('hidden');
             updateHUD();
+        }
+
+        function restartGame() {
+            startGame();
+        }
+
+        function resetFrog() {
+            frog.gridX = 6;
+            frog.gridY = 12;
+            frog.x = frog.gridX * tileSize + tileSize / 2;
+            frog.y = frog.gridY * tileSize + tileSize / 2;
+            frog.targetX = frog.x;
+            frog.targetY = frog.y;
+            frog.squash = 1;
         }
 
         function updateHUD() {
-            document.getElementById('hudScore').innerText = String(score).padStart(5, '0');
-            document.getElementById('hudLives').innerText = '❤️ '.repeat(Math.max(0, lives));
-            document.getElementById('hudDistance').innerText = `${distance}m / 50m`;
+            document.getElementById('hud-score').innerText = String(score).padStart(5, '0');
+            document.getElementById('hud-best').innerText = String(bestScore).padStart(5, '0');
+            document.getElementById('hud-lives').innerText = '❤️'.repeat(lives);
+            document.getElementById('hud-distance').innerText = distance + 'm';
         }
 
-        // Keyboard Controls
-        window.addEventListener('keydown', e => {
-            if (!gameRunning) return;
-            const step = 42;
-            const vw = canvas.width / window.devicePixelRatio;
-            const vh = canvas.height / window.devicePixelRatio;
+        // Movement Handling
+        function moveFrog(dir) {
+            if (gameState !== 'PLAYING') return;
 
-            if (e.key === 'w' || e.key === 'ArrowUp') {
-                frog.y -= step;
-                distance = Math.min(maxDistance, distance + 5);
-                score += 50;
+            let newX = frog.gridX;
+            let newY = frog.gridY;
+
+            if (dir === 'UP') newY--;
+            if (dir === 'DOWN') newY++;
+            if (dir === 'LEFT') newX--;
+            if (dir === 'RIGHT') newX++;
+
+            // Boundaries
+            if (newX >= 0 && newX < COLS && newY >= 0 && newY < ROWS) {
+                frog.gridX = newX;
+                frog.gridY = newY;
+                frog.targetX = frog.gridX * tileSize + tileSize / 2;
+                frog.targetY = frog.gridY * tileSize + tileSize / 2;
+                frog.squash = 1.3;
+
                 playSound('hop');
-            } else if (e.key === 's' || e.key === 'ArrowDown') {
-                frog.y = Math.min(vh - 30, frog.y + step);
-                distance = Math.max(0, distance - 5);
-            } else if (e.key === 'a' || e.key === 'ArrowLeft') {
-                frog.x = Math.max(25, frog.x - step);
-            } else if (e.key === 'd' || e.key === 'ArrowRight') {
-                frog.x = Math.min(vw - 25, frog.x + step);
+
+                // Calculate distance/score based on upward progress
+                let currentDist = (12 - frog.gridY) * 10;
+                if (currentDist > distance) {
+                    distance = currentDist;
+                    score += 50;
+                }
+
+                // Check Win Condition (Row 0)
+                if (frog.gridY === 0) {
+                    triggerVictory();
+                }
             }
-            checkWinCondition();
-            updateHUD();
+        }
+
+        // Controls binding
+        window.addEventListener('keydown', (e) => {
+            if (['ArrowUp', 'KeyW'].includes(e.code)) { e.preventDefault(); moveFrog('UP'); }
+            if (['ArrowDown', 'KeyS'].includes(e.code)) { e.preventDefault(); moveFrog('DOWN'); }
+            if (['ArrowLeft', 'KeyA'].includes(e.code)) { e.preventDefault(); moveFrog('LEFT'); }
+            if (['ArrowRight', 'KeyD'].includes(e.code)) { e.preventDefault(); moveFrog('RIGHT'); }
         });
 
-        // On-Screen & Touch Controls with Exact Directional Mapping
-        function handleTouchControl(dir) {
-            if (!gameRunning) return;
-            const step = 42;
-            const vw = canvas.width / window.devicePixelRatio;
-            const vh = canvas.height / window.devicePixelRatio;
-
-            if (dir === 'up') {
-                frog.y -= step;
-                distance = Math.min(maxDistance, distance + 5);
-                score += 50;
-                playSound('hop');
-            } else if (dir === 'down') {
-                frog.y = Math.min(vh - 30, frog.y + step);
-                distance = Math.max(0, distance - 5);
-            } else if (dir === 'left') {
-                frog.x = Math.max(25, frog.x - step);
-            } else if (dir === 'right') {
-                frog.x = Math.min(vw - 25, frog.x + step);
-            }
-            checkWinCondition();
-            updateHUD();
+        function handleControl(dir) {
+            moveFrog(dir);
         }
 
-        // Mobile Swipe Gestures Support (Preventing accidental page scroll)
+        // Swipe Gestures for Mobile
         let touchStartX = 0;
         let touchStartY = 0;
-        canvas.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-            touchStartY = e.changedTouches[0].screenY;
-        }, {passive: true});
+        canvas.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            e.preventDefault();
+        }, {passive: false});
 
-        canvas.addEventListener('touchend', e => {
-            if (!gameRunning) return;
-            let touchEndX = e.changedTouches[0].screenX;
-            let touchEndY = e.changedTouches[0].screenY;
+        canvas.addEventListener('touchend', (e) => {
+            if (gameState !== 'PLAYING') return;
+            let touchEndX = e.changedTouches[0].clientX;
+            let touchEndY = e.changedTouches[0].clientY;
             let diffX = touchEndX - touchStartX;
             let diffY = touchEndY - touchStartY;
 
             if (Math.abs(diffX) > Math.abs(diffY)) {
-                if (diffX > 25) {
-                    handleTouchControl('right');
-                } else if (diffX < -25) {
-                    handleTouchControl('left');
-                }
+                if (diffX > 30) moveFrog('RIGHT');
+                else if (diffX < -30) moveFrog('LEFT');
             } else {
-                if (diffY < -25) {
-                    handleTouchControl('up');
-                } else if (diffY > 25) {
-                    handleTouchControl('down');
-                }
+                if (diffY > 30) moveFrog('DOWN');
+                else if (diffY < -30) moveFrog('UP');
             }
-        }, {passive: true});
+            e.preventDefault();
+        }, {passive: false});
 
-        // Prevent scroll when touching canvas
-        canvas.addEventListener('touchmove', function(e) {
-            if (gameRunning) e.preventDefault();
-        }, { passive: false });
+        function triggerGameOver() {
+            gameState = 'GAMEOVER';
+            playSound('crash');
+            if (score > bestScore) {
+                bestScore = score;
+                localStorage.setItem('froggy_best', bestScore);
+            }
+            document.getElementById('go-score').innerText = score;
+            document.getElementById('go-best').innerText = bestScore;
+            document.getElementById('screen-gameover').classList.remove('hidden');
+        }
 
-        function checkWinCondition() {
-            if (frog.y <= 50) {
-                gameRunning = false;
-                playSound('victory');
-                score += 1000;
-                if (score > bestScore) {
-                    bestScore = score;
-                    localStorage.setItem('froggy_best', bestScore);
-                    document.getElementById('hudBest').innerText = bestScore;
+        function triggerWaterDeath() {
+            gameState = 'GAMEOVER';
+            playSound('splash');
+            document.getElementById('gameover-title').innerText = "FROGGY SPLASHED! 🌊🐸";
+            document.getElementById('gameover-subtitle').innerText = "Froggy fell into the Monad River.";
+            if (score > bestScore) {
+                bestScore = score;
+                localStorage.setItem('froggy_best', bestScore);
+            }
+            document.getElementById('go-score').innerText = score;
+            document.getElementById('go-best').innerText = bestScore;
+            document.getElementById('screen-gameover').classList.remove('hidden');
+        }
+
+        function triggerVictory() {
+            gameState = 'VICTORY';
+            playSound('victory');
+            score += 1000;
+            if (score > bestScore) {
+                bestScore = score;
+                localStorage.setItem('froggy_best', bestScore);
+            }
+            document.getElementById('vic-score').innerText = score;
+            document.getElementById('screen-victory').classList.remove('hidden');
+        }
+
+        function shareScore() {
+            const text = `I just scored ${score} in FROGGY ROAD RUN on Monad! 🐸🔥 Born in Monad, raised by the pond. Play now:`;
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
+            window.open(url, '_blank');
+        }
+
+        // Game Loop Update & Render
+        function update() {
+            if (gameState === 'PLAYING') {
+                // Smooth frog interpolation
+                frog.x += (frog.targetX - frog.x) * 0.2;
+                frog.y += (frog.targetY - frog.y) * 0.2;
+                frog.squash += (1 - frog.squash) * 0.1;
+
+                // Update cars
+                cars.forEach(car => {
+                    car.x += car.speed * (canvas.width / 800);
+                    if (car.speed > 0 && car.x > canvas.width + 100) {
+                        car.x = -150;
+                    } else if (car.speed < 0 && car.x < -150) {
+                        car.x = canvas.width + 100;
+                    }
+
+                    // Collision Check with Frog (Car lanes: 6, 7, 8, 9)
+                    if (frog.gridY === car.row) {
+                        let frogLeft = frog.x - tileSize * 0.35;
+                        let frogRight = frog.x + tileSize * 0.35;
+                        let carLeft = car.x;
+                        let carRight = car.x + car.width;
+
+                        if (frogRight > carLeft && frogLeft < carRight) {
+                            lives--;
+                            updateHUD();
+                            playSound('crash');
+                            if (lives <= 0) {
+                                triggerGameOver();
+                            } else {
+                                resetFrog();
+                            }
+                        }
+                    }
+                });
+
+                // Check River Collision (Row 4)
+                if (frog.gridY === 4) {
+                    triggerWaterDeath();
                 }
-                document.getElementById('finalScore').innerText = score;
-                document.getElementById('victoryModal').classList.remove('hidden');
             }
         }
 
-        // Game Loop Rendering
-        function gameLoop() {
-            const vw = canvas.width / window.devicePixelRatio;
-            const vh = canvas.height / window.devicePixelRatio;
+        function render() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            ctx.clearRect(0, 0, vw, vh);
-
-            // Cinematic Dark Background
-            ctx.fillStyle = '#030207';
-            ctx.fillRect(0, 0, vw, vh);
-
-            // Magical Purple River Pond (Finish Line)
-            ctx.fillStyle = '#10091C';
-            ctx.fillRect(0, 0, vw, 70);
-            ctx.fillStyle = '#836EF9';
-            ctx.font = 'bold 16px Space Grotesk';
-            ctx.textAlign = 'center';
-            ctx.fillText('🌊 THE POND — MONAD MAGICAL RIVER (FINISH LINE) 🌊', vw / 2, 42);
-
-            // Traffic Lanes & Vehicles
-            lanes.forEach(lane => {
-                if (lane.isRoad) {
-                    ctx.fillStyle = '#080510';
-                    ctx.fillRect(0, lane.y - 18, vw, 36);
-
-                    // Glowing Purple Lane Markings
-                    ctx.strokeStyle = 'rgba(131, 110, 249, 0.35)';
-                    ctx.setLineDash([14, 14]);
+            // Draw Background environment layers
+            for (let r = 0; r < ROWS; r++) {
+                let y = r * tileSize;
+                if (r === 0) {
+                    // Finish Pond / Safe Bank
+                    ctx.fillStyle = '#0B0713';
+                    ctx.fillRect(0, y, canvas.width, tileSize);
+                    ctx.fillStyle = '#836EF9';
+                    ctx.font = `bold ${tileSize * 0.4}px Inter`;
+                    ctx.textAlign = 'center';
+                    ctx.fillText('🏆 MONAD POND FINISH 🏆', canvas.width / 2, y + tileSize * 0.65);
+                } else if (r === 4) {
+                    // River
+                    ctx.fillStyle = '#1A103C';
+                    ctx.fillRect(0, y, canvas.width, tileSize);
+                    // Water animated effect
+                    ctx.fillStyle = '#836EF933';
+                    let time = Date.now() * 0.003;
+                    for (let i = 0; i < canvas.width; i += 40) {
+                        ctx.fillRect((i + Math.sin(time + i) * 20) % canvas.width, y + 10, 20, tileSize - 20);
+                    }
+                    ctx.fillStyle = '#D8CCFF';
+                    ctx.font = `bold ${tileSize * 0.3}px Inter`;
+                    ctx.textAlign = 'center';
+                    ctx.fillText('🌊 MONAD RIVER 🌊', canvas.width / 2, y + tileSize * 0.65);
+                } else if (r >= 6 && r <= 9) {
+                    // Road
+                    ctx.fillStyle = '#0F0B1A';
+                    ctx.fillRect(0, y, canvas.width, tileSize);
+                    // Lane divider
+                    ctx.strokeStyle = '#836EF944';
+                    ctx.setLineDash([15, 15]);
                     ctx.beginPath();
-                    ctx.moveTo(0, lane.y + 16);
-                    ctx.lineTo(vw, lane.y + 16);
+                    ctx.moveTo(0, y + tileSize);
+                    ctx.lineTo(canvas.width, y + tileSize);
                     ctx.stroke();
                     ctx.setLineDash([]);
-
-                    // Vehicles
-                    lane.cars.forEach(car => {
-                        if (gameRunning) {
-                            car.x += lane.speed;
-                            if (lane.speed > 0 && car.x > vw) car.x = -car.width;
-                            if (lane.speed < 0 && car.x < -car.width) car.x = vw;
-                        }
-
-                        // Car Chassis
-                        ctx.fillStyle = car.color;
-                        ctx.beginPath();
-                        ctx.roundRect(car.x, lane.y - 15, car.width, car.height, 8);
-                        ctx.fill();
-
-                        // Neon Headlights / Glow
-                        ctx.fillStyle = '#DDD4FF';
-                        ctx.fillRect(lane.speed > 0 ? car.x + car.width - 6 : car.x, lane.y - 9, 5, 8);
-
-                        // Forgiving Collision Detection Box
-                        if (gameRunning) {
-                            let dx = Math.abs(frog.x - (car.x + car.width / 2));
-                            let dy = Math.abs(frog.y - lane.y);
-                            if (dx < car.width / 2 + 8 && dy < 12) {
-                                playSound('crash');
-                                lives--;
-                                updateHUD();
-                                frog.y = vh - 40;
-                                frog.x = vw / 2;
-                                distance = 0;
-
-                                if (lives <= 0) {
-                                    gameRunning = false;
-                                    document.getElementById('overScore').innerText = score;
-                                    document.getElementById('gameOverModal').classList.remove('hidden');
-                                }
-                            }
-                        }
-                    });
+                } else {
+                    // Grass / Safe ground
+                    ctx.fillStyle = '#07040E';
+                    ctx.fillRect(0, y, canvas.width, tileSize);
                 }
+            }
+
+            // Draw Cars
+            cars.forEach(car => {
+                let y = car.row * tileSize + 5;
+                let h = tileSize - 10;
+                
+                // Car Body (Stylized futuristic luxury purple vehicle)
+                ctx.fillStyle = car.colorType === 0 ? '#836EF9' : car.colorType === 1 ? '#9B7BFF' : '#B18CFF';
+                ctx.beginPath();
+                ctx.roundRect(car.x, y + 5, car.width, h - 10, 8);
+                ctx.fill();
+
+                // Headlights / Taillights
+                ctx.fillStyle = '#7CFF6B';
+                if (car.speed > 0) {
+                    ctx.fillRect(car.x + car.width - 6, y + 8, 5, 6);
+                    ctx.fillRect(car.x + car.width - 6, y + h - 14, 5, 6);
+                } else {
+                    ctx.fillRect(car.x + 1, y + 8, 5, 6);
+                    ctx.fillRect(car.x + 1, y + h - 14, 5, 6);
+                }
+
+                // Car windshield reflection
+                ctx.fillStyle = 'rgba(255,255,255,0.2)';
+                ctx.fillRect(car.x + car.width * 0.3, y + 8, car.width * 0.4, h - 16);
             });
 
-            // Draw Froggy Character (Monad Purple & Soft Lavender themed glow)
-            ctx.fillStyle = '#836EF9';
-            ctx.beginPath();
-            ctx.arc(frog.x, frog.y, 16, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.lineWidth = 3;
-            ctx.strokeStyle = '#DDD4FF';
-            ctx.stroke();
+            // Draw Froggy Character
+            if (gameState === 'PLAYING' || gameState === 'VICTORY') {
+                ctx.save();
+                ctx.translate(frog.x, frog.y);
+                ctx.scale(frog.squash, 2 - frog.squash);
 
-            // Eyes
-            ctx.fillStyle = '#FFFFFF';
-            ctx.beginPath();
-            ctx.arc(frog.x - 6, frog.y - 10, 4.5, 0, Math.PI * 2);
-            ctx.arc(frog.x + 6, frog.y - 10, 4.5, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.fillStyle = '#030207';
-            ctx.beginPath();
-            ctx.arc(frog.x - 6, frog.y - 10, 2, 0, Math.PI * 2);
-            ctx.arc(frog.x + 6, frog.y - 10, 2, 0, Math.PI * 2);
-            ctx.fill();
+                // Glow behind frog
+                ctx.shadowColor = '#836EF9';
+                ctx.shadowBlur = 15;
 
+                // Frog Body (Stylized green/purple meme frog)
+                ctx.fillStyle = '#7CFF6B';
+                ctx.beginPath();
+                ctx.arc(0, 0, tileSize * 0.35, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Eyes
+                ctx.fillStyle = '#FFFFFF';
+                ctx.beginPath();
+                ctx.arc(-tileSize * 0.15, -tileSize * 0.2, tileSize * 0.12, 0, Math.PI * 2);
+                ctx.arc(tileSize * 0.15, -tileSize * 0.2, tileSize * 0.12, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.fillStyle = '#05030A';
+                ctx.beginPath();
+                ctx.arc(-tileSize * 0.15, -tileSize * 0.2, tileSize * 0.05, 0, Math.PI * 2);
+                ctx.arc(tileSize * 0.15, -tileSize * 0.2, tileSize * 0.05, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.restore();
+            }
+        }
+
+        function gameLoop() {
+            update();
+            render();
             requestAnimationFrame(gameLoop);
         }
 
-        initLanes();
         requestAnimationFrame(gameLoop);
-
-        function shareScore() {
-            const text = `I just crossed the Monad highway and reached the pond with a score of ${score} on $FROGGY! 🌊🐸 Can you beat my record? https://www.x.com/FroggyNad`;
-            if (navigator.share) {
-                navigator.share({ title: 'Froggy Score', text: text, url: window.location.href });
-            } else {
-                navigator.clipboard.writeText(text);
-                alert('Score copied to clipboard! Share it on X or Telegram.');
-            }
-        }
     </script>
 </body>
 </html>
